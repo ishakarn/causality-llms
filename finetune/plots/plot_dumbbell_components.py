@@ -1,7 +1,10 @@
 """
-Modular dumbbell PNGs for draw.io import — all 4 models, colored by model.
+Modular dumbbell SVGs for paper assembly — all 4 models, colored by model.
 Matches the color scheme and data of outputs/plots/paper-ready/dumbbell.png.
 Output: outputs/plots/paper-ready/dumbbell_components/
+
+Individual component plots have no x-axis label so they can be stacked manually.
+Multi-row panels (panel_a, panel_b) include y-axis intervention labels.
 """
 
 import json
@@ -112,7 +115,6 @@ def _draw_single(ax, interv_key, xlim=(0.47, 1.02)):
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
     ax.spines["left"].set_visible(False)
-    ax.set_xlabel("Accuracy (%)", fontsize=7.5, labelpad=3)
     ax.grid(axis="x", linestyle=":", alpha=0.3, zorder=0)
 
 
@@ -168,3 +170,53 @@ out = OUT_DIR / "legend_dumbbell.png"
 fig.savefig(out, dpi=300, bbox_inches="tight", transparent=True)
 plt.close(fig)
 print(f"Wrote: {out}")
+
+
+# ── Multi-row panels (panel_a, panel_b) ───────────────────────────────────────
+def _draw_panel(interv_items, out_path, xlim=(0.47, 1.02)):
+    """Multi-row dumbbell panel with y-axis intervention labels, no x-axis label."""
+    n = len(interv_items)
+    row_h = 0.75
+    fig, axes = plt.subplots(n, 1, figsize=(2.4, row_h * n),
+                             sharex=True, squeeze=False)
+    fig.patch.set_alpha(0)
+
+    for row_i, (interv_key, interv_label) in enumerate(interv_items):
+        ax = axes[row_i][0]
+        ax.patch.set_alpha(0)
+        _draw_single(ax, interv_key, xlim=xlim)
+
+        # Add intervention name as y-axis label on each row
+        ax.set_ylabel(interv_label, fontsize=7.5, rotation=0,
+                      ha="right", va="center", labelpad=4)
+        ax.yaxis.set_label_coords(-0.02, 0.5)
+
+        # Only bottom row keeps x-tick labels; all rows suppress x-axis label
+        if row_i < n - 1:
+            ax.tick_params(axis="x", labelbottom=False)
+
+        # Separator line between rows
+        if row_i < n - 1:
+            ax.spines["bottom"].set_visible(True)
+            ax.spines["bottom"].set_color("#e0e0e0")
+            ax.spines["bottom"].set_linewidth(0.6)
+
+    fig.subplots_adjust(hspace=0.08, left=0.22, right=0.98,
+                        top=0.98, bottom=0.06)
+    fig.savefig(out_path, dpi=300, bbox_inches="tight", transparent=True)
+    plt.close(fig)
+    print(f"Wrote: {out_path}")
+
+
+PANEL_A = [
+    ("67_word_replace",   "Word Replace"),
+    ("68_number_replace", "Number Replace"),
+    ("81_story_swap",     "Story Swap"),
+]
+
+PANEL_B = [
+    ("66_set_numbers_to_X", "Mask Numbers"),
+]
+
+_draw_panel(PANEL_A, OUT_DIR / "panel_a_dumbbell.png")
+_draw_panel(PANEL_B, OUT_DIR / "panel_b_dumbbell.png")

@@ -1,8 +1,8 @@
 {
   "n": 10392,
-  "correct": 7937,
+  "correct": 9211,
   "invalid": 0,
   "invalid_rate": 0.0,
-  "acc_all": 0.763760585065435,
-  "acc_valid_only": 0.763760585065435
+  "acc_all": 0.8863548883756736,
+  "acc_valid_only": 0.8863548883756736
 }
