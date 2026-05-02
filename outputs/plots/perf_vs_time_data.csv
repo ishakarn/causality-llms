@@ -1,0 +1,20 @@
+model_name,release_date,release_date_uncertain,overall_accuracy,parameter_count,suspected_exposure,dataset_split,notes
+GPT-3 (davinci),2020-06-01,FALSE,49.92,175B,no,CLadder v1.5 balanced (10112q),gpt3.04 in original results; ~chance on all query types
+GPT-3.5 (ChatGPT),2022-11-30,FALSE,52.18,~175B,no,CLadder v1.5 balanced (10112q),gpt3.5 in original results
+GPT-4-0613,2023-06-13,FALSE,63.86,unknown,no,easy+hard+anticommonsense pooled,gpt-4-0613; our batch evaluation on easy+hard+anticommonsense splits
+GPT-4-1106,2023-11-06,FALSE,62.03,unknown,no,CLadder v1.5 balanced (10112q),gpt4_1106 in original results
+GPT-4-1106 + CausalCoT,2023-11-06,FALSE,70.40,unknown,no,CLadder v1.5 balanced (10112q),gpt4_1106_cot; prompting method not a new model
+GPT-3.5-turbo-1106,2023-11-06,FALSE,50.73,~175B,no,easy+hard+anticommonsense pooled,our evaluation; near-chance
+GPT-4o,2024-05-13,FALSE,58.02,unknown,yes,easy+hard+anticommonsense pooled,gpt-4o-2024-05-13; post-dates CLadder publication
+GPT-4.1,2025-04-14,FALSE,62.22,unknown,yes,easy+hard+anticommonsense pooled,gpt-4.1-2025-04-14; post-dates CLadder publication
+Qwen2.5-3B base,2024-09-18,FALSE,53.72,3B,no,easy+hard+anticommonsense pooled,Near-chance baseline
+LLaMA-3.1-8B base,2024-07-23,FALSE,57.17,8B,no,easy+hard+anticommonsense pooled,Meta release Jul 2024
+OLMo-3.1-7B base,2025-02-01,TRUE,53.91,7B,no,easy+hard+anticommonsense pooled,Release date approximate
+OLMo-3.1-32B base,2025-02-01,TRUE,57.50,32B,no,easy+hard+anticommonsense pooled,Release date approximate
+LLaMA-3.1-8B LoRA (N=2000),2025-02-01,TRUE,82.81,8B,no,easy+hard+anticommonsense pooled,Fine-tuned on 2000 CLadder examples
+Qwen2.5-3B LoRA (N=2000),2025-02-01,TRUE,77.57,3B,no,easy+hard+anticommonsense pooled,Fine-tuned on 2000 CLadder examples
+OLMo-3.1-7B LoRA (N=2000),2025-02-01,TRUE,80.04,7B,no,easy+hard+anticommonsense pooled,Fine-tuned on 2000 CLadder examples
+OLMo-3.1-32B LoRA (N=2000),2025-02-01,TRUE,82.96,32B,no,easy+hard+anticommonsense pooled,Fine-tuned on 2000 CLadder examples
+GPT-OSS-20B base,2025-05-01,TRUE,76.18,20B,yes,easy+hard+anticommonsense pooled,Release date uncertain; suspected CLadder exposure
+GPT-5-Nano base,2025-08-07,FALSE,87.24,unknown,yes,easy+hard+anticommonsense pooled,gpt-5-nano-2025-08-07; suspected CLadder exposure
+GPT-5.4,2026-03-05,FALSE,76.06,unknown,yes,easy+hard+anticommonsense pooled,gpt-5.4-2026-03-05; post-dates CLadder

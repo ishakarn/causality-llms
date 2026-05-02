@@ -1,0 +1,11 @@
+query_type,acc_all,n
+ate,0.86,50
+backadj,0.7,50
+collider_bias,0.5208333333333334,48
+correlation,0.8,50
+det-counterfactual,0.56,50
+ett,0.66,50
+exp_away,0.6666666666666666,48
+marginal,0.58,50
+nde,0.64,50
+nie,0.62,50

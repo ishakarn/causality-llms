@@ -1,0 +1,56 @@
+# ── Model ─────────────────────────────────────────────────────────────────────
+# Swap this ONE line to switch between variants:
+#   allenai/Olmo-3-7B-Instruct
+#   allenai/Olmo-3-7B-Think
+model_id: "allenai/Olmo-3-7B-Instruct"
+trust_remote_code: true
+dtype: "bf16"            # bf16 | fp16 | fp32
+
+# ── Data ──────────────────────────────────────────────────────────────────────
+data_path: "data/queries_easy.json"
+splits_dir: "finetune/splits"
+split_seed: 42
+train_frac: 0.8
+val_frac: 0.1
+# test_frac = 1 - train_frac - val_frac = 0.1
+max_seq_length: 512      # longest text ~325 tokens + chat template; 512 is safe
+
+# ── LoRA ──────────────────────────────────────────────────────────────────────
+# OLMo-3 uses a LLaMA-style Transformer (SwiGLU FFN, RoPE).
+# Targeting both attention and FFN projections gives best quality.
+lora_r: 16
+lora_alpha: 32           # effective scale = lora_alpha / lora_r = 2
+lora_dropout: 0.05
+lora_target_modules:
+  - "q_proj"
+  - "k_proj"
+  - "v_proj"
+  - "o_proj"
+  - "gate_proj"
+  - "up_proj"
+  - "down_proj"
+
+# ── Training ──────────────────────────────────────────────────────────────────
+output_dir: "finetune/checkpoints"
+run_name: "olmo3-7b-instruct-lora"   # change when switching model variant
+
+num_train_epochs: 5
+per_device_train_batch_size: 4
+per_device_eval_batch_size: 8
+gradient_accumulation_steps: 4       # effective batch size = 16
+learning_rate: 2.0e-4
+lr_scheduler_type: "cosine"
+warmup_ratio: 0.05
+weight_decay: 0.01
+gradient_checkpointing: true
+seed: 42
+
+# ── Checkpointing & Evaluation ────────────────────────────────────────────────
+eval_strategy: "epoch"
+save_strategy: "epoch"
+save_total_limit: 3              # keep best + last 2
+load_best_model_at_end: true
+metric_for_best_model: "eval_loss"   # loss correlates tightly with acc on 1-token task
+greater_is_better: false
+logging_steps: 10
+report_to: "none"                # "wandb" | "tensorboard" | "none"

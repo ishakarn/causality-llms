@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# Model checkpoints (61GB)
+finetune/checkpoints/
+
+# Large prediction JSONL files (keep score summaries)
+finetune/eval_results/**/*.jsonl
+finetune/intervention_results/**/*.jsonl
+outputs/**/*.jsonl
+completions/outputs/
+
+# Raw datasets and response files (1.9GB)
+data/
+original_cladder_data/
+
+# SLURM logs
+finetune/slurm_logs/
+completions/slurm_logs/
+slurm-*.out
+
+# Claude settings
+.claude/
+
+# Large output dirs (raw inference results, keep plots)
+outputs/cladder-v1-q-*/
+
+# Scratch / temp
+*.tmp
+.DS_Store

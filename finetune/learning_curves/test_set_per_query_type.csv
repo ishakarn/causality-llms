@@ -1,0 +1,13 @@
+query_type,olmo3-7b-instruct_n,olmo3-7b-instruct_acc,qwen25-3b-instruct_n,qwen25-3b-instruct_acc
+backadj,45,1.0000,45,1.0000
+ate,39,1.0000,39,1.0000
+collider_bias,5,1.0000,5,1.0000
+ett,33,1.0000,33,1.0000
+nie,23,0.9565,23,0.9565
+det-counterfactual,39,0.8462,39,0.7949
+marginal,45,0.8444,45,0.8222
+correlation,39,0.8718,39,0.8205
+nde,15,0.7333,15,0.7333
+exp_away,5,1.0000,5,0.8000
+overall,288,0.9201,288,0.8993
+pred_yes_pct,288,0.5694,288,0.5694
