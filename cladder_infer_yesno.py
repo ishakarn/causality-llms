@@ -158,6 +158,7 @@ SYSTEM_ALIASES = {
 }
 
 YESNO_RE = re.compile(r"\b(yes|no)\b", flags=re.IGNORECASE)
+THINK_STRIP_RE = re.compile(r"<think>.*?</think>", re.DOTALL | re.IGNORECASE)
 
 
 def parse_yes_no(text: str) -> Optional[str]:
@@ -187,10 +188,12 @@ def resolve_system_prompt(system_arg: str, model_name: str) -> str:
     return alias if alias is not None else system_arg
 
 
-def build_chat_input(tokenizer, prompt: str, system_msg: str, user_prefix: str = "") -> str:
+def build_chat_input(tokenizer, prompt: str, system_msg: str,
+                     user_prefix: str = "", thinking: bool = False) -> str:
     """
     Return a string that is ready to be tokenized.
     Uses chat template only when tokenizer.chat_template is set; otherwise falls back.
+    Pass thinking=True to leave Qwen3 thinking mode enabled (default is off).
     """
     user_content = (user_prefix + "\n" if user_prefix else "") + prompt
 
@@ -200,7 +203,11 @@ def build_chat_input(tokenizer, prompt: str, system_msg: str, user_prefix: str =
             {"role": "system", "content": system_msg},
             {"role": "user", "content": user_content},
         ]
-        return tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+        kwargs: dict = dict(tokenize=False, add_generation_prompt=True)
+        # Qwen3 thinking is ON by default; disable unless explicitly requested
+        if "enable_thinking" in (tokenizer.chat_template or ""):
+            kwargs["enable_thinking"] = thinking
+        return tokenizer.apply_chat_template(messages, **kwargs)
 
     # Base model fallback (no chat template)
     return f"{system_msg}\n\n{user_content}\n\nAnswer:"
@@ -274,7 +281,7 @@ def generate_one(
     temperature: float,
     top_p: float,
     decision_mode: str,
-    
+    thinking: bool = False,
 ) -> Tuple[str, str]:
     """
     Returns:
@@ -283,7 +290,8 @@ def generate_one(
     """
     tok, model = mb.tokenizer, mb.model
 
-    rendered = build_chat_input(tok, prompt, system_msg=system_msg, user_prefix=user_prefix)
+    rendered = build_chat_input(tok, prompt, system_msg=system_msg,
+                                user_prefix=user_prefix, thinking=thinking)
     enc = tok(rendered, return_tensors="pt").to(model.device)
 
     if decision_mode == "logit":
@@ -334,7 +342,9 @@ def generate_one(
     gen_ids = out[0, prompt_len:]
     raw = tok.decode(gen_ids, skip_special_tokens=True).strip()
 
-    pred = parse_yes_no(raw)
+    # For thinking mode strip <think>...</think> before parsing yes/no
+    parse_text = THINK_STRIP_RE.sub("", raw).strip() if thinking else raw
+    pred = parse_yes_no(parse_text)
     return raw, (pred or "")
 
 
@@ -353,6 +363,7 @@ def run_inference(
     decision_mode: str,
     limit: Optional[int],
     start: int,
+    thinking: bool = False,
 ) -> None:
     out_path = Path(out_jsonl)
     out_path.parent.mkdir(parents=True, exist_ok=True)
@@ -377,6 +388,7 @@ def run_inference(
                 temperature=temperature,
                 top_p=top_p,
                 decision_mode=decision_mode,
+                thinking=thinking,
             )
 
             rec = {
@@ -446,6 +458,8 @@ def main():
     ap.add_argument("--start", type=int, default=0, help="Start offset into dataset")
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--overwrite", action="store_true", help="Overwrite existing out_jsonl if it exists")
+    ap.add_argument("--thinking", action="store_true",
+                    help="Enable chain-of-thought thinking (Qwen3). Strips <think>...</think> before parsing yes/no.")
 
     ap.add_argument("--no_strict_schema", action="store_true", help="Don’t fail if schema differs")
     args = ap.parse_args()
@@ -497,6 +511,7 @@ def main():
         decision_mode=args.decision_mode,
         limit=args.limit,
         start=args.start,
+        thinking=args.thinking,
     )
 
 

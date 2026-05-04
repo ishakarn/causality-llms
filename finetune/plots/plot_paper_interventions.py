@@ -27,6 +27,7 @@ CONDITIONS = OrderedDict([
     ("olmo32b_n2000_lora", ("OLMo-3.1-32B LoRA", "finetuned", "olmo3-32b-instruct-lora",        "#DD8452", "D", "dashed")),
     ("gptoss_base",        ("GPT-OSS-20B base",  "baseline",  "gpt-oss-20b-baseline",            "#55A868", "o", "solid")),
     ("gpt5nano_base",      ("GPT-5-Nano base",   "baseline",  "gpt-5-nano-nano496-baseline",     "#9467BD", "o", "solid")),
+    ("gpt55_base",         ("GPT-5.5 base",      "baseline",  "gpt-5.5-baseline",                "#C44E52", "o", "solid")),
 ])
 
 QTYPE_ORDER = ["marginal", "correlation", "backadj", "ate", "ett",
@@ -37,18 +38,15 @@ QTYPE_LABELS = {
     "det-counterfactual": "DCF", "exp_away": "EXP", "collider_bias": "COL",
 }
 
-# 6 key interventions in narrative order
 PAPER_INTERVENTIONS = OrderedDict([
-    ("66_set_numbers_to_X",               "Mask Numbers"),
-    ("67_word_replace",                   "Word Replace"),
-    ("68_number_replace",                 "Number Replace"),
-    ("70_word_replace_polarity_mask",     "Word+Polarity Mask"),
-    ("71_word_replace_pct_polarity_mask", "Word+Pol Mask (%)"),
-    ("81_story_swap",                     "Story Swap"),
-    ("86_nonsense_replace",               "Nonsense Replace"),
+    ("67_word_replace",                                         "Word Replace"),
+    ("68_number_replace",                                       "Number Replace"),
+    ("74_swap_percentages_within_graph_group_and_flip_answers", "Swap Pct+Flip"),
+    ("81_story_swap",                                           "Story Swap"),
+    ("86_nonsense_replace",                                     "Nonsense Replace"),
 ])
 
-DEFAULT_SPLITS = ["easy", "hard", "anticommonsense"]
+DEFAULT_SPLITS = ["easy", "hard", "anticommonsense", "noncommonsense"]
 
 # ── Data helpers ──────────────────────────────────────────────────────────────
 def weighted_acc(results):
@@ -115,8 +113,8 @@ def get_interv(cond_key, interv_key):
 
 # ── Plot 1: Dumbbell ──────────────────────────────────────────────────────────
 def plot_dumbbell():
-    MODEL_OFFSETS = [-0.30, -0.10, 0.10, 0.30]
-    MODEL_LS      = ["dashed", "dashed", "solid", "solid"]
+    MODEL_OFFSETS = [-0.36, -0.18, 0.0, 0.18, 0.36]
+    MODEL_LS      = ["dashed", "dashed", "solid", "solid", "solid"]
     cond_keys     = list(CONDITIONS.keys())
     interv_keys   = list(PAPER_INTERVENTIONS.keys())
     interv_labels = list(PAPER_INTERVENTIONS.values())
@@ -241,7 +239,7 @@ def plot_qtype_strip():
     qt_labels     = [QTYPE_LABELS[qt] for qt in qtypes]
     n_qt          = len(qtypes)
     n_interv      = len(interv_keys)
-    model_offsets = [-0.30, -0.10, 0.10, 0.30]
+    model_offsets = [-0.36, -0.18, 0.0, 0.18, 0.36]
 
     fig, axes = plt.subplots(1, n_interv, figsize=(8.5, 4.2),
                              sharey=True, sharex=True)

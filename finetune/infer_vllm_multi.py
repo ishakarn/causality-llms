@@ -66,9 +66,11 @@ def build_prompt(record: Dict, tokenizer, system_msg: str,
         {"role": "user",   "content": user_content},
     ]
     if getattr(tokenizer, "chat_template", None):
-        return tokenizer.apply_chat_template(
-            messages, tokenize=False, add_generation_prompt=True
-        )
+        kwargs: dict = dict(tokenize=False, add_generation_prompt=True)
+        # Qwen3 thinking is ON by default; disable it for logit-based scoring
+        if "enable_thinking" in (tokenizer.chat_template or ""):
+            kwargs["enable_thinking"] = False
+        return tokenizer.apply_chat_template(messages, **kwargs)
     return f"{system_msg}\n\n{record['text']}\n\nAnswer:"
 
 

@@ -47,10 +47,14 @@ def parse_yesno(text: str):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--responses", required=True, help="Batch API JSONL response file")
-    ap.add_argument("--data",      required=True, help="Original data JSON (for query_type/gold)")
-    ap.add_argument("--out",       required=True, help="Output JSONL path")
+    ap.add_argument("--responses",    required=True, help="Batch API JSONL response file")
+    ap.add_argument("--data",         required=True, help="Original data JSON (for query_type/gold)")
+    ap.add_argument("--out",          required=True, help="Output JSONL path")
+    ap.add_argument("--run_id",       default=RUN_ID,       help="Override run_id written to each record")
+    ap.add_argument("--model_id_str", default=MODEL_ID_STR, help="Override model_id_str written to each record")
     args = ap.parse_args()
+    RUN_ID_USE       = args.run_id
+    MODEL_ID_STR_USE = args.model_id_str
 
     # Build lookup: question_id -> {query_type, answer, model_id}
     data = json.loads(Path(args.data).read_text())
@@ -74,14 +78,14 @@ def main():
             pred = parse_yesno(raw_text)
 
             row = {
-                "run_id":        RUN_ID,
+                "run_id":        RUN_ID_USE,
                 "question_id":   int(custom_id) if custom_id.isdigit() else custom_id,
                 "model_id":      orig.get("model_id"),
                 "query_type":    orig.get("query_type"),
                 "gold":          orig.get("answer"),
                 "pred":          pred,
                 "raw_response":  raw_text.strip(),
-                "model_id_str":  MODEL_ID_STR,
+                "model_id_str":  MODEL_ID_STR_USE,
                 "decision_mode": "generate",
             }
             fout.write(json.dumps(row) + "\n")

@@ -25,11 +25,12 @@ CONDITIONS = OrderedDict([
     ("olmo32b_n2000_lora", ("OLMo-3.1-32B LoRA", "finetuned", "olmo3-32b-instruct-lora",    "#DD8452", "D", "dashed")),
     ("gptoss_base",        ("GPT-OSS-20B base",  "baseline",  "gpt-oss-20b-baseline",        "#55A868", "o", "solid")),
     ("gpt5nano_base",      ("GPT-5-Nano base",   "baseline",  "gpt-5-nano-nano496-baseline", "#9467BD", "o", "solid")),
+    ("gpt55_base",         ("GPT-5.5 base",      "baseline",  "gpt-5.5-baseline",            "#C44E52", "o", "solid")),
 ])
 
-DEFAULT_SPLITS = ["easy", "hard", "anticommonsense"]
+DEFAULT_SPLITS = ["easy", "hard", "anticommonsense", "noncommonsense"]
 CHANCE_COLOR   = "#888888"
-MODEL_OFFSETS  = [-0.27, -0.09, 0.09, 0.27]   # vertical nudge per model within each row
+MODEL_OFFSETS  = [-0.36, -0.18, 0.0, 0.18, 0.36]   # vertical nudge per model within each row
 
 # Use acc_valid_only for models that produce invalid (non-yes/no) responses
 USE_VALID_ONLY = {"gpt5nano_base"}
@@ -37,11 +38,11 @@ USE_VALID_ONLY = {"gpt5nano_base"}
 # ── Panel definitions ─────────────────────────────────────────────────────────
 # Panel A: interventions where accuracy drops (text/meaning disrupted)
 ALL_INTERVS = OrderedDict([
-    ("66_set_numbers_to_X",  "Mask Numbers"),
-    ("67_word_replace",      "Word Replace"),
-    ("68_number_replace",    "Number Replace"),
-    ("81_story_swap",        "Story Swap"),
-    ("86_nonsense_replace",  "Nonsense Replace"),
+    ("67_word_replace",                                          "Word Replace"),
+    ("68_number_replace",                                        "Number Replace"),
+    ("74_swap_percentages_within_graph_group_and_flip_answers",  "Swap Pct+Flip"),
+    ("81_story_swap",                                            "Story Swap"),
+    ("86_nonsense_replace",                                      "Nonsense Replace"),
 ])
 
 # ── Data helpers (same logic as plot_paper_interventions.py) ──────────────────
@@ -120,7 +121,7 @@ def _draw_single(ax, interv_key, xlim=(0.47, 1.02)):
 
 # ── One PNG per intervention ──────────────────────────────────────────────────
 for interv_key, interv_label in ALL_INTERVS.items():
-    fig, ax = plt.subplots(figsize=(2.4, 0.85))
+    fig, ax = plt.subplots(figsize=(2.4, 0.82))
     fig.patch.set_alpha(0)
     ax.patch.set_alpha(0)
     _draw_single(ax, interv_key)
@@ -130,6 +131,34 @@ for interv_key, interv_label in ALL_INTERVS.items():
     fig.savefig(out, dpi=300, bbox_inches="tight", transparent=True)
     plt.close(fig)
     print(f"Wrote: {out}")
+
+# ── Original query baseline (open circles only, no intervention line) ─────────
+fig, ax = plt.subplots(figsize=(2.4, 0.82))
+fig.patch.set_alpha(0)
+ax.patch.set_alpha(0)
+ax.set_xlim(0.47, 1.02)
+ax.set_ylim(-0.55, 0.55)
+for ci, cond_key in enumerate(CONDITIONS):
+    _, _, _, color, _, _ = CONDITIONS[cond_key]
+    b = get_baseline(cond_key)
+    if b is None:
+        continue
+    ax.scatter(b, MODEL_OFFSETS[ci], s=38, color="white",
+               edgecolors=color, linewidths=1.6, zorder=4)
+ax.axvline(0.5, color=CHANCE_COLOR, linewidth=0.9, linestyle=":", zorder=1)
+ax.set_yticks([])
+ax.set_xticks([0.5, 0.6, 0.7, 0.8, 0.9, 1.0])
+ax.set_xticklabels(["50", "60", "70", "80", "90", "100"], fontsize=7)
+ax.tick_params(axis="x", length=2.5, pad=1.5)
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
+ax.spines["left"].set_visible(False)
+ax.grid(axis="x", linestyle=":", alpha=0.3, zorder=0)
+plt.tight_layout(pad=0.25)
+out = OUT_DIR / "original_baseline.png"
+fig.savefig(out, dpi=300, bbox_inches="tight", transparent=True)
+plt.close(fig)
+print(f"Wrote: {out}")
 
 # ── Legend ────────────────────────────────────────────────────────────────────
 fig, ax = plt.subplots(figsize=(4.5, 0.45))
@@ -214,9 +243,38 @@ PANEL_A = [
     ("81_story_swap",     "Story Swap"),
 ]
 
-PANEL_B = [
-    ("66_set_numbers_to_X", "Mask Numbers"),
-]
-
 _draw_panel(PANEL_A, OUT_DIR / "panel_a_dumbbell.png")
-_draw_panel(PANEL_B, OUT_DIR / "panel_b_dumbbell.png")
+
+
+# ── Baseline per split (one file per split) ───────────────────────────────────
+for split in DEFAULT_SPLITS:
+    fig, ax = plt.subplots(figsize=(2.4, 0.82))
+    fig.patch.set_alpha(0)
+    ax.patch.set_alpha(0)
+    ax.set_xlim(0.47, 1.02)
+    ax.set_ylim(-0.55, 0.55)
+
+    for ci, cond_key in enumerate(CONDITIONS):
+        _, subdir, run_id, color, *_ = CONDITIONS[cond_key]
+        p = OUTPUTS / f"cladder-v1-q-{split}" / subdir / run_id / "score" / "summary.json"
+        if not p.exists():
+            continue
+        acc = json.load(open(p))[_acc_key(cond_key)]
+        ax.scatter(acc, MODEL_OFFSETS[ci], s=38, color="white",
+                   edgecolors=color, linewidths=1.6, zorder=4)
+
+    ax.axvline(0.5, color=CHANCE_COLOR, linewidth=0.9, linestyle=":", zorder=1)
+    ax.set_yticks([])
+    ax.set_xticks([0.5, 0.6, 0.7, 0.8, 0.9, 1.0])
+    ax.set_xticklabels(["50", "60", "70", "80", "90", "100"], fontsize=7)
+    ax.tick_params(axis="x", length=2.5, pad=1.5)
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.spines["left"].set_visible(False)
+    ax.grid(axis="x", linestyle=":", alpha=0.3, zorder=0)
+
+    plt.tight_layout(pad=0.25)
+    out = OUT_DIR / f"baseline_{split}.png"
+    fig.savefig(out, dpi=300, bbox_inches="tight", transparent=True)
+    plt.close(fig)
+    print(f"Wrote: {out}")
