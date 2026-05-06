@@ -11,11 +11,9 @@
 #SBATCH --constraint=vram80
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=64G
-#SBATCH --time=03:00:00
+#SBATCH --time=00:15:00
 #SBATCH --output=finetune/slurm_logs/%j_interv_gptoss_%x.out
 #SBATCH --error=finetune/slurm_logs/%j_interv_gptoss_%x.err
-#SBATCH --mail-type=END,FAIL
-#SBATCH --mail-user=ikarn@umass.edu
 
 set -euo pipefail
 
@@ -29,7 +27,7 @@ export TRANSFORMERS_CACHE="$HF_HOME/hub"
 export HF_DATASETS_CACHE="$HF_HOME/datasets"
 export TORCH_HOME="$WS/.cache/torch"
 export TOKENIZERS_PARALLELISM=false
-export HF_TOKEN="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"
+export HF_TOKEN="${HF_TOKEN}"
 
 module load conda/latest
 CONDA_BASE=$(conda info --base 2>/dev/null || echo "$CONDA_PREFIX")

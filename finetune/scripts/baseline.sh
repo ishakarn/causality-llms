@@ -42,7 +42,7 @@ export TORCH_HOME="$WS/.cache/torch"
 export PIP_CACHE_DIR="$WS/.cache/pip"
 export TOKENIZERS_PARALLELISM=false
 
-export HF_TOKEN="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"
+export HF_TOKEN="${HF_TOKEN}"
 
 echo "[cache] HF_HOME=$HF_HOME"
 

@@ -235,7 +235,7 @@ def main() -> None:
     pending = []
     for (data_file, out_jsonl), rid in zip(pairs, run_ids):
         score_file = Path(out_jsonl).parent / "score" / "summary.json"
-        if score_file.exists():
+        if score_file.exists() and not args.overwrite:
             acc = json.loads(score_file.read_text()).get("acc_all", "?")
             print(f"  [skip] {data_file}  (already scored, acc={acc:.3f})")
         elif Path(out_jsonl).exists() and not args.overwrite:

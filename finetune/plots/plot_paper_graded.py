@@ -127,18 +127,16 @@ def plot_learning_curve():
         ax.spines["bottom"].set_linewidth(0.9)
         ax.spines["left"].set_linewidth(0.9)
 
-        ax.set_xlabel("Training size (N)", fontsize=8)
         if ax_i == 0:
             ax.set_ylabel("Accuracy", fontsize=8)
 
-        # legend inside the chosen panel only
-        if ax_i == LEGEND_PANEL:
-            ax.legend(handles=handles_for_legend,
-                      loc="upper left",
-                      fontsize=7.5,
-                      framealpha=0.45,
-                      edgecolor="#cccccc",
-                      handlelength=2.0)
+    # Single centered x-axis label below all panels
+    fig.text(0.5, 0.01, "Training size (N)", ha="center", va="top", fontsize=8)
+
+    # Compact legend below the x-axis
+    fig.legend(handles=handles_for_legend, loc="lower center", ncol=3,
+               fontsize=7.5, framealpha=0.9, edgecolor="#cccccc",
+               handlelength=2.0, bbox_to_anchor=(0.5, -0.18))
 
     plt.tight_layout(w_pad=0.5)
     OUT_DIR.mkdir(parents=True, exist_ok=True)

@@ -22,15 +22,16 @@ OUT_DIR.mkdir(parents=True, exist_ok=True)
 # ── Model config (mirrors plot_paper_interventions.py exactly) ────────────────
 CONDITIONS = OrderedDict([
     ("qwen3b_n2000_lora",  ("Qwen2.5-3B LoRA",   "finetuned", "qwen25-3b-instruct-lora",    "#4C72B0", "D", "dashed")),
+    ("llama8b_n2000_lora", ("Llama-3.1-8B LoRA", "finetuned", "llama31-8b-instruct-lora",   "#56B4E9", "D", "dashed")),
     ("olmo32b_n2000_lora", ("OLMo-3.1-32B LoRA", "finetuned", "olmo3-32b-instruct-lora",    "#DD8452", "D", "dashed")),
     ("gptoss_base",        ("GPT-OSS-20B base",  "baseline",  "gpt-oss-20b-baseline",        "#55A868", "o", "solid")),
-    ("gpt5nano_base",      ("GPT-5-Nano base",   "baseline",  "gpt-5-nano-nano496-baseline", "#9467BD", "o", "solid")),
+    ("gpt5nano_base",      ("GPT-5-Nano base",   "baseline",  "gpt-5-nano-baseline", "#9467BD", "o", "solid")),
     ("gpt55_base",         ("GPT-5.5 base",      "baseline",  "gpt-5.5-baseline",            "#C44E52", "o", "solid")),
 ])
 
 DEFAULT_SPLITS = ["easy", "hard", "anticommonsense", "noncommonsense"]
 CHANCE_COLOR   = "#888888"
-MODEL_OFFSETS  = [-0.36, -0.18, 0.0, 0.18, 0.36]   # vertical nudge per model within each row
+MODEL_OFFSETS  = [-0.42, -0.25, -0.08, 0.08, 0.25, 0.42]   # vertical nudge per model within each row
 
 # Use acc_valid_only for models that produce invalid (non-yes/no) responses
 USE_VALID_ONLY = {"gpt5nano_base"}
@@ -40,9 +41,11 @@ USE_VALID_ONLY = {"gpt5nano_base"}
 ALL_INTERVS = OrderedDict([
     ("67_word_replace",                                          "Word Replace"),
     ("68_number_replace",                                        "Number Replace"),
-    ("74_swap_percentages_within_graph_group_and_flip_answers",  "Swap Pct+Flip"),
     ("81_story_swap",                                            "Story Swap"),
     ("86_nonsense_replace",                                      "Nonsense Replace"),
+    ("94_drop_background",                                       "Drop Background"),
+    ("96_probability_expander",                                  "Prob Expander"),
+    ("100_drop_graph_structure",                                 "Drop Graph"),
 ])
 
 # ── Data helpers (same logic as plot_paper_interventions.py) ──────────────────

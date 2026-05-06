@@ -8,14 +8,12 @@
 #SBATCH --partition=gpu-preempt
 #SBATCH --qos=normal
 #SBATCH --gpus=1
-#SBATCH --constraint=a16
+#SBATCH --constraint="a16|a40|a100"
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=24G
-#SBATCH --time=04:00:00
+#SBATCH --time=00:15:00
 #SBATCH --output=finetune/slurm_logs/%j_interv_qwen_%x.out
 #SBATCH --error=finetune/slurm_logs/%j_interv_qwen_%x.err
-#SBATCH --mail-type=END,FAIL
-#SBATCH --mail-user=ikarn@umass.edu
 
 set -euo pipefail
 
@@ -29,7 +27,7 @@ export TRANSFORMERS_CACHE="$HF_HOME/hub"
 export HF_DATASETS_CACHE="$HF_HOME/datasets"
 export TORCH_HOME="$WS/.cache/torch"
 export TOKENIZERS_PARALLELISM=false
-export HF_TOKEN="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"
+export HF_TOKEN="${HF_TOKEN}"
 
 module load conda/latest
 CONDA_BASE=$(conda info --base 2>/dev/null || echo "$CONDA_PREFIX")

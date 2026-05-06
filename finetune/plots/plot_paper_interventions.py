@@ -23,11 +23,12 @@ RESULTS_DIR = Path("finetune/eval_results/interventions")
 
 # ── Shared config ─────────────────────────────────────────────────────────────
 CONDITIONS = OrderedDict([
-    ("qwen3b_n2000_lora",  ("Qwen2.5-3B LoRA",   "finetuned", "qwen25-3b-instruct-lora",        "#4C72B0", "D", "dashed")),
-    ("olmo32b_n2000_lora", ("OLMo-3.1-32B LoRA", "finetuned", "olmo3-32b-instruct-lora",        "#DD8452", "D", "dashed")),
-    ("gptoss_base",        ("GPT-OSS-20B base",  "baseline",  "gpt-oss-20b-baseline",            "#55A868", "o", "solid")),
-    ("gpt5nano_base",      ("GPT-5-Nano base",   "baseline",  "gpt-5-nano-nano496-baseline",     "#9467BD", "o", "solid")),
-    ("gpt55_base",         ("GPT-5.5 base",      "baseline",  "gpt-5.5-baseline",                "#C44E52", "o", "solid")),
+    ("qwen3b_n2000_lora",  ("Qwen2.5-3B LoRA",    "finetuned", "qwen25-3b-instruct-lora",        "#4C72B0", "D", "dashed")),
+    ("llama8b_n2000_lora", ("Llama-3.1-8B LoRA",  "finetuned", "llama31-8b-instruct-lora",       "#56B4E9", "D", "dashed")),
+    ("olmo32b_n2000_lora", ("OLMo-3.1-32B LoRA",  "finetuned", "olmo3-32b-instruct-lora",        "#DD8452", "D", "dashed")),
+    ("gptoss_base",        ("GPT-OSS-20B base",   "baseline",  "gpt-oss-20b-baseline",            "#55A868", "o", "solid")),
+    ("gpt5nano_base",      ("GPT-5-Nano base",    "baseline",  "gpt-5-nano-baseline",     "#9467BD", "o", "solid")),
+    ("gpt55_base",         ("GPT-5.5 base",       "baseline",  "gpt-5.5-baseline",                "#C44E52", "o", "solid")),
 ])
 
 QTYPE_ORDER = ["marginal", "correlation", "backadj", "ate", "ett",
@@ -41,9 +42,11 @@ QTYPE_LABELS = {
 PAPER_INTERVENTIONS = OrderedDict([
     ("67_word_replace",                                         "Word Replace"),
     ("68_number_replace",                                       "Number Replace"),
-    ("74_swap_percentages_within_graph_group_and_flip_answers", "Swap Pct+Flip"),
     ("81_story_swap",                                           "Story Swap"),
     ("86_nonsense_replace",                                     "Nonsense Replace"),
+    ("94_drop_background",                                      "Drop Background"),
+    ("96_probability_expander",                                 "Prob Expander"),
+    ("100_drop_graph_structure",                                "Drop Graph"),
 ])
 
 DEFAULT_SPLITS = ["easy", "hard", "anticommonsense", "noncommonsense"]
@@ -113,8 +116,8 @@ def get_interv(cond_key, interv_key):
 
 # ── Plot 1: Dumbbell ──────────────────────────────────────────────────────────
 def plot_dumbbell():
-    MODEL_OFFSETS = [-0.36, -0.18, 0.0, 0.18, 0.36]
-    MODEL_LS      = ["dashed", "dashed", "solid", "solid", "solid"]
+    MODEL_OFFSETS = [-0.42, -0.25, -0.08, 0.08, 0.25, 0.42]
+    MODEL_LS      = ["dashed", "dashed", "dashed", "solid", "solid", "solid"]
     cond_keys     = list(CONDITIONS.keys())
     interv_keys   = list(PAPER_INTERVENTIONS.keys())
     interv_labels = list(PAPER_INTERVENTIONS.values())
@@ -166,8 +169,9 @@ def plot_dumbbell():
         mlines.Line2D([], [], color="gray", marker="o", markersize=5.5,
                       markerfacecolor="white", markeredgecolor="gray",
                       linewidth=0, label="Baseline"))
-    ax.legend(handles=handles, loc="lower right", fontsize=8,
-              framealpha=0.9, edgecolor="#cccccc")
+    fig.legend(handles=handles, loc="lower center", ncol=4, fontsize=8,
+               framealpha=0.9, edgecolor="#cccccc",
+               bbox_to_anchor=(0.5, -0.08))
 
     plt.tight_layout()
     OUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -239,7 +243,7 @@ def plot_qtype_strip():
     qt_labels     = [QTYPE_LABELS[qt] for qt in qtypes]
     n_qt          = len(qtypes)
     n_interv      = len(interv_keys)
-    model_offsets = [-0.36, -0.18, 0.0, 0.18, 0.36]
+    model_offsets = [-0.42, -0.25, -0.08, 0.08, 0.25, 0.42]
 
     fig, axes = plt.subplots(1, n_interv, figsize=(8.5, 4.2),
                              sharey=True, sharex=True)

@@ -48,7 +48,7 @@ export HF_DATASETS_CACHE="$HF_HOME/datasets"
 export TORCH_HOME="$WS/.cache/torch"
 export PIP_CACHE_DIR="$WS/.cache/pip"
 export TOKENIZERS_PARALLELISM=false    # suppress tokenizer fork warning
-export HF_TOKEN="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"
+export HF_TOKEN="${HF_TOKEN}"
 
 echo "[cache] HF_HOME=$HF_HOME"
 echo "[cache] TORCH_HOME=$TORCH_HOME"
