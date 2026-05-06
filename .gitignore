@@ -19,10 +19,8 @@ outputs/**/*.jsonl
 finetune/splits
 finetune/splits_graded
 
-
 # Raw datasets, intervened datasets, and API response files
-data/gpt-*_responses/
-data/intervened_datasets/
+data/
 original_cladder_data/
 cladder_interventions/data/
 cladder_interventions/interventions/**/*.json
@@ -36,8 +34,8 @@ finetune/slurm_logs/
 completions/slurm_logs/
 slurm-*.out
 
-# batch files
-finetune/scripts/..
+# SLURM scripts (cluster-specific)
+finetune/scripts/
 
 # Claude settings
 .claude/
