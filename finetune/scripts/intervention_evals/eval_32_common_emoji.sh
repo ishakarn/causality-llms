@@ -4,7 +4,7 @@
 # Usage: bash finetune/scripts/intervention_evals/eval_32_common_emoji.sh
 
 TEMPLATES=$(dirname "$0")
-WORKDIR=/work/pi_jensen_umass_edu/ikarn_umass_edu/olmo_cladder_test
+WORKDIR=${WORKDIR:-$(cd "$(dirname "$0")/../.."; pwd)}
 cd "$WORKDIR"
 
 export INTERV_NAME="32_insert_common_emoji_blocks"

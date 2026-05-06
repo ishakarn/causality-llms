@@ -4,6 +4,10 @@ __pycache__/
 *.pyo
 *.egg-info/
 
+# old scripts
+archive/
+finetune/plots/archive
+
 # Model checkpoints (61GB)
 finetune/checkpoints/
 
@@ -11,22 +15,35 @@ finetune/checkpoints/
 finetune/eval_results/**/*.jsonl
 finetune/intervention_results/**/*.jsonl
 outputs/**/*.jsonl
-completions/outputs/
+finetune/splits
+finetune/splits_graded
 
-# Raw datasets and response files (1.9GB)
-data/
+
+# Raw datasets, intervened datasets, and API response files
+data/gpt-*_responses/
+data/intervened_datasets/
 original_cladder_data/
+cladder_interventions/data/
+cladder_interventions/interventions/**/*.json
+cladder_interventions/cladder-main/causalbenchmark/
+
+# HF / model cache
+.cache/
 
 # SLURM logs
 finetune/slurm_logs/
 completions/slurm_logs/
 slurm-*.out
 
+# batch files
+finetune/scripts/
+
 # Claude settings
 .claude/
 
 # Large output dirs (raw inference results, keep plots)
 outputs/cladder-v1-q-*/
+outputs/plots/archive
 
 # Scratch / temp
 *.tmp

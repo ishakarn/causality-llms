@@ -3,7 +3,7 @@
 # Usage: bash finetune/scripts/submit_baseline_reruns.sh
 
 SCRIPTS=$(dirname "$0")
-WORKDIR=/work/pi_jensen_umass_edu/ikarn_umass_edu/olmo_cladder_test
+WORKDIR=${WORKDIR:-$(cd "$(dirname "$0")/../.."; pwd)}
 cd "$WORKDIR"
 
 for SPLIT in easy hard anticommonsense noncommonsense; do

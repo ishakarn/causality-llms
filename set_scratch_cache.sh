@@ -1,5 +1,5 @@
-cat > /work/pi_jensen_umass_edu/ikarn_umass_edu/olmo_cladder_test/set_scratch_cache.sh <<'EOF'
-export WS=/scratch/workspace/ikarn_umass_edu-olmo_cladder_cache
+cat > ${WORKDIR}/set_scratch_cache.sh <<'EOF'
+export WS=${SCRATCH_CACHE:-/scratch/workspace/$(whoami)-cladder-cache}
 
 mkdir -p $WS/.cache/huggingface $WS/.cache/torch $WS/.cache/pip
 

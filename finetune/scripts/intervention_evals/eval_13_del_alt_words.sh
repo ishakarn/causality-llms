@@ -4,7 +4,7 @@
 # Usage: bash finetune/scripts/intervention_evals/eval_13_del_alt_words.sh
 
 TEMPLATES=$(dirname "$0")
-WORKDIR=/work/pi_jensen_umass_edu/ikarn_umass_edu/olmo_cladder_test
+WORKDIR=${WORKDIR:-$(cd "$(dirname "$0")/../.."; pwd)}
 cd "$WORKDIR"
 
 export INTERV_NAME="13_remove_every_other_word_except_numbers"

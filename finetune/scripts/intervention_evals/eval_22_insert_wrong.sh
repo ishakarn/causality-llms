@@ -4,7 +4,7 @@
 # Usage: bash finetune/scripts/intervention_evals/eval_22_insert_wrong.sh
 
 TEMPLATES=$(dirname "$0")
-WORKDIR=/work/pi_jensen_umass_edu/ikarn_umass_edu/olmo_cladder_test
+WORKDIR=${WORKDIR:-$(cd "$(dirname "$0")/../.."; pwd)}
 cd "$WORKDIR"
 
 export INTERV_NAME="22_insert_wrong_answer_once_per_sentence"

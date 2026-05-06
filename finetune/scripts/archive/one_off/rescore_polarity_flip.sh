@@ -5,7 +5,7 @@
 
 set -euo pipefail
 
-WORKDIR=/work/pi_jensen_umass_edu/ikarn_umass_edu/olmo_cladder_test
+WORKDIR=${WORKDIR:-$(cd "$(dirname "$0")/../.."; pwd)}
 cd "$WORKDIR"
 
 module load conda/latest

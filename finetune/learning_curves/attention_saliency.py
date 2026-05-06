@@ -42,7 +42,7 @@ from typing import Dict, List, Optional, Tuple
 
 # Point HF to scratch cache if not already set by the calling environment
 # (SLURM scripts set this; interactive runs would otherwise hit ~/.cache)
-_WS = "/scratch/workspace/ikarn_umass_edu-olmo_cladder_cache"
+_WS = "${SCRATCH_CACHE:-/scratch/workspace/$(whoami)-cladder-cache}"
 os.environ.setdefault("HF_HOME",             f"{_WS}/.cache/huggingface")
 os.environ.setdefault("TRANSFORMERS_CACHE",  f"{_WS}/.cache/huggingface/hub")
 os.environ.setdefault("HF_DATASETS_CACHE",  f"{_WS}/.cache/huggingface/datasets")

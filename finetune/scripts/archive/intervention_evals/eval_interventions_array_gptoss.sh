@@ -26,10 +26,10 @@
 
 set -euo pipefail
 
-WORKDIR=/work/pi_jensen_umass_edu/ikarn_umass_edu/olmo_cladder_test
+WORKDIR=${WORKDIR:-$(cd "$(dirname "$0")/../.."; pwd)}
 cd "$WORKDIR"
 
-WS=/scratch/workspace/ikarn_umass_edu-olmo_cladder_cache
+WS=${SCRATCH_CACHE:-/scratch/workspace/$(whoami)-cladder-cache}
 mkdir -p "$WS/.cache/huggingface" "$WS/.cache/torch"
 export HF_HOME="$WS/.cache/huggingface"
 export TRANSFORMERS_CACHE="$HF_HOME/hub"

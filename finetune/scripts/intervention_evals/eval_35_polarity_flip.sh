@@ -4,7 +4,7 @@
 # Usage: bash finetune/scripts/intervention_evals/eval_35_polarity_flip.sh
 
 TEMPLATES=$(dirname "$0")
-WORKDIR=/work/pi_jensen_umass_edu/ikarn_umass_edu/olmo_cladder_test
+WORKDIR=${WORKDIR:-$(cd "$(dirname "$0")/../.."; pwd)}
 cd "$WORKDIR"
 
 export INTERV_NAME="35_polarity_flip"

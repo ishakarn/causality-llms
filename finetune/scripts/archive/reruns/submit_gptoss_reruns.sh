@@ -1,7 +1,7 @@
 #!/bin/bash
 # Generates and submits one SLURM job per intervention for gptoss base.
 
-WORKDIR=/work/pi_jensen_umass_edu/ikarn_umass_edu/olmo_cladder_test
+WORKDIR=${WORKDIR:-$(cd "$(dirname "$0")/../.."; pwd)}
 cd "$WORKDIR"
 
 INTERVENTIONS=(67_word_replace 68_number_replace 70_word_replace_polarity_mask 71_word_replace_pct_polarity_mask 86_nonsense_replace)
@@ -21,9 +21,9 @@ COMMON_HEADER='#!/bin/bash
 #SBATCH --mail-user=ikarn@umass.edu
 
 set -euo pipefail
-cd /work/pi_jensen_umass_edu/ikarn_umass_edu/olmo_cladder_test
+cd "$WORKDIR"
 
-WS=/scratch/workspace/ikarn_umass_edu-olmo_cladder_cache
+WS=${SCRATCH_CACHE:-/scratch/workspace/$(whoami)-cladder-cache}
 mkdir -p "$WS/.cache/huggingface" "$WS/.cache/torch"
 export HF_HOME="$WS/.cache/huggingface"
 export TRANSFORMERS_CACHE="$HF_HOME/hub"
