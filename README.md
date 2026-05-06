@@ -1,4 +1,4 @@
-# [PAPER TITLE]
+# Evaluating Causal Reasoning in LLMs: A Case Study in the Challenges of Procedural Generation
 
 Anonymous submission — NeurIPS 2026 Datasets and Benchmarks Track.
 
@@ -149,4 +149,4 @@ If you use this work, please also cite the original CLadder paper:
 
 ## License
 
-Code: [PLACEHOLDER]. CLadder data is subject to its own license; see `cladder_interventions/cladder-main/LICENSE`.
+Code: [Evaluating Causal Reasoning in LLMs: A Case Study in the Challenges of Procedural Generation]. CLadder data is subject to its own license; see `cladder_interventions/cladder-main/LICENSE`.
