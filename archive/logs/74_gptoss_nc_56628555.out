@@ -1,339 +1,0 @@
-Loading conda version miniforge3-24.7.1
-/work/pi_jensen_umass_edu/ikarn_umass_edu/.conda/envs/cladder_olmo/lib/python3.10/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
-  warnings.warn(
-[multi-infer] model:         allenai/OLMo-3.1-32B-Instruct
-[multi-infer] lora_path:     (none)
-[multi-infer] max_model_len: 4096
-[multi-infer] reasoning:     False
-[multi-infer] files to run:  1
-[multi-infer] yes_ids=[10035, 9891, 7566, 14331]  no_ids=[912, 2201, 2360, 9173]
-[multi-infer] base model (no LoRA)
-[multi-infer] loading model…
-INFO 05-03 21:30:40 [utils.py:233] non-default args: {'trust_remote_code': True, 'dtype': 'bfloat16', 'max_model_len': 4096, 'gpu_memory_utilization': 0.85, 'disable_log_stats': True, 'enforce_eager': True, 'model': 'allenai/OLMo-3.1-32B-Instruct'}
-The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
-INFO 05-03 21:30:41 [model.py:533] Resolved architecture: Olmo2ForCausalLM
-INFO 05-03 21:30:41 [model.py:1582] Using max model len 4096
-INFO 05-03 21:30:41 [scheduler.py:231] Chunked prefill is enabled with max_num_batched_tokens=8192.
-INFO 05-03 21:30:41 [vllm.py:754] Asynchronous scheduling is enabled.
-WARNING 05-03 21:30:41 [vllm.py:788] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
-WARNING 05-03 21:30:41 [vllm.py:799] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
-INFO 05-03 21:30:45 [vllm.py:964] Cudagraph is disabled under eager mode
-INFO 05-03 21:30:45 [compilation.py:289] Enabled custom fusions: norm_quant, act_quant
-(EngineCore pid=3253835) INFO 05-03 21:30:46 [core.py:103] Initializing a V1 LLM engine (v0.18.0) with config: model='allenai/OLMo-3.1-32B-Instruct', speculative_config=None, tokenizer='allenai/OLMo-3.1-32B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=4096, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, enforce_eager=True, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=allenai/OLMo-3.1-32B-Instruct, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.NONE: 0>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['all'], 'splitting_ops': [], 'compile_mm_encoder': False, 'compile_sizes': [], 'compile_ranges_endpoints': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.NONE: 0>, 'cudagraph_num_of_warmups': 0, 'cudagraph_capture_sizes': [], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': True, 'fuse_act_quant': True, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 0, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': True, 'static_all_moe_layers': []}
-(EngineCore pid=3253835) INFO 05-03 21:30:49 [parallel_state.py:1395] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://10.100.115.5:46653 backend=nccl
-(EngineCore pid=3253835) INFO 05-03 21:30:49 [parallel_state.py:1717] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank N/A, EPLB rank N/A
-(EngineCore pid=3253835) INFO 05-03 21:30:50 [gpu_model_runner.py:4481] Starting to load model allenai/OLMo-3.1-32B-Instruct...
-(EngineCore pid=3253835) INFO 05-03 21:30:53 [cuda.py:317] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
-(EngineCore pid=3253835) INFO 05-03 21:30:53 [flash_attn.py:598] Using FlashAttention version 2
-(EngineCore pid=3253835) INFO 05-03 21:33:56 [weight_utils.py:574] Time spent downloading weights for allenai/OLMo-3.1-32B-Instruct: 182.731547 seconds
-(EngineCore pid=3253835) Loading safetensors checkpoint shards:   0% Completed | 0/14 [00:00<?, ?it/s]
-(EngineCore pid=3253835) Loading safetensors checkpoint shards:   7% Completed | 1/14 [00:12<02:48, 12.93s/it]
-(EngineCore pid=3253835) Loading safetensors checkpoint shards:  14% Completed | 2/14 [00:25<02:33, 12.81s/it]
-(EngineCore pid=3253835) Loading safetensors checkpoint shards:  21% Completed | 3/14 [00:37<02:17, 12.53s/it]
-(EngineCore pid=3253835) Loading safetensors checkpoint shards:  29% Completed | 4/14 [00:49<02:02, 12.23s/it]
-(EngineCore pid=3253835) Loading safetensors checkpoint shards:  36% Completed | 5/14 [01:03<01:54, 12.69s/it]
-(EngineCore pid=3253835) Loading safetensors checkpoint shards:  43% Completed | 6/14 [01:16<01:43, 12.98s/it]
-(EngineCore pid=3253835) Loading safetensors checkpoint shards:  50% Completed | 7/14 [01:29<01:29, 12.78s/it]
-(EngineCore pid=3253835) Loading safetensors checkpoint shards:  57% Completed | 8/14 [01:41<01:16, 12.69s/it]
-(EngineCore pid=3253835) Loading safetensors checkpoint shards:  64% Completed | 9/14 [01:53<01:01, 12.38s/it]
-(EngineCore pid=3253835) Loading safetensors checkpoint shards:  71% Completed | 10/14 [02:05<00:49, 12.32s/it]
-(EngineCore pid=3253835) Loading safetensors checkpoint shards:  79% Completed | 11/14 [02:16<00:36, 12.09s/it]
-(EngineCore pid=3253835) Loading safetensors checkpoint shards:  86% Completed | 12/14 [02:28<00:23, 11.89s/it]
-(EngineCore pid=3253835) Loading safetensors checkpoint shards:  93% Completed | 13/14 [02:39<00:11, 11.71s/it]
-(EngineCore pid=3253835) Loading safetensors checkpoint shards: 100% Completed | 14/14 [02:42<00:00,  9.06s/it]
-(EngineCore pid=3253835) Loading safetensors checkpoint shards: 100% Completed | 14/14 [02:42<00:00, 11.62s/it]
-(EngineCore pid=3253835) 
-(EngineCore pid=3253835) INFO 05-03 21:36:39 [default_loader.py:384] Loading weights took 162.69 seconds
-(EngineCore pid=3253835) INFO 05-03 21:36:39 [gpu_model_runner.py:4566] Model loading took 60.07 GiB memory and 348.470693 seconds
-(EngineCore pid=3253835) INFO 05-03 21:36:44 [gpu_worker.py:456] Available KV cache memory: 5.51 GiB
-(EngineCore pid=3253835) INFO 05-03 21:36:44 [kv_cache_utils.py:1316] GPU KV cache size: 22,560 tokens
-(EngineCore pid=3253835) INFO 05-03 21:36:44 [kv_cache_utils.py:1321] Maximum concurrency for 4,096 tokens per request: 5.49x
-(EngineCore pid=3253835) INFO 05-03 21:36:44 [core.py:281] init engine (profile, create kv cache, warmup model) took 4.44 seconds
-(EngineCore pid=3253835) WARNING 05-03 21:36:45 [vllm.py:788] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
-(EngineCore pid=3253835) WARNING 05-03 21:36:45 [vllm.py:799] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
-(EngineCore pid=3253835) INFO 05-03 21:36:45 [vllm.py:964] Cudagraph is disabled under eager mode
-INFO 05-03 21:36:45 [llm.py:391] Supported tasks: ['generate']
-  [infer] data/intervened_datasets/noncommonsense/74_swap_percentages_within_graph_group_and_flip_answers_noncommonsense.json  (9600 records)
-74_swap_percentages_within_graph_group_and_flip_answers_noncommonsense:   0%|          | 0/20 [00:00<?, ?it/s]
-Rendering prompts:   0%|          | 0/500 [00:00<?, ?it/s][A
-Rendering prompts:   0%|          | 1/500 [00:00<01:19,  6.27it/s][A
-Rendering prompts:  30%|███       | 150/500 [00:00<00:00, 707.37it/s][A
-Rendering prompts:  65%|██████▍   | 323/500 [00:00<00:00, 1119.36it/s][ARendering prompts: 100%|██████████| 500/500 [00:00<00:00, 1110.10it/s]
-
-Processed prompts:   0%|          | 0/500 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
-Processed prompts:   0%|          | 1/500 [00:13<1:54:53, 13.81s/it, est. speed input: 11.29 toks/s, output: 0.14 toks/s][A
-Processed prompts:   0%|          | 2/500 [00:15<56:53,  6.85s/it, est. speed input: 19.75 toks/s, output: 0.25 toks/s]  [A
-Processed prompts:  24%|██▍       | 119/500 [00:16<00:29, 13.03it/s, est. speed input: 1184.42 toks/s, output: 14.24 toks/s][A
-Processed prompts:  43%|████▎     | 213/500 [00:18<00:13, 21.19it/s, est. speed input: 2099.21 toks/s, output: 22.78 toks/s][A
-Processed prompts:  52%|█████▏    | 258/500 [00:20<00:11, 21.50it/s, est. speed input: 2329.38 toks/s, output: 24.91 toks/s][A
-Processed prompts:  70%|██████▉   | 348/500 [00:21<00:04, 33.18it/s, est. speed input: 3079.82 toks/s, output: 32.39 toks/s][A
-Processed prompts: 100%|██████████| 500/500 [00:21<00:00, 33.18it/s, est. speed input: 4245.42 toks/s, output: 46.46 toks/s][AProcessed prompts: 100%|██████████| 500/500 [00:21<00:00, 23.23it/s, est. speed input: 4245.42 toks/s, output: 46.46 toks/s]
-74_swap_percentages_within_graph_group_and_flip_answers_noncommonsense:   5%|▌         | 1/20 [00:22<06:58, 22.03s/it]
-Rendering prompts:   0%|          | 0/500 [00:00<?, ?it/s][A
-Rendering prompts:  35%|███▍      | 173/500 [00:00<00:00, 1722.95it/s][A
-Rendering prompts:  73%|███████▎  | 365/500 [00:00<00:00, 1834.89it/s][ARendering prompts: 100%|██████████| 500/500 [00:00<00:00, 1839.13it/s]
-
-Processed prompts:   0%|          | 0/500 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
-Processed prompts:   0%|          | 1/500 [00:02<17:10,  2.07s/it, est. speed input: 101.67 toks/s, output: 0.97 toks/s][A
-Processed prompts:   0%|          | 2/500 [00:04<16:56,  2.04s/it, est. speed input: 102.73 toks/s, output: 0.98 toks/s][A
-Processed prompts:  18%|█▊        | 91/500 [00:05<00:15, 26.35it/s, est. speed input: 3437.97 toks/s, output: 35.81 toks/s][A
-Processed prompts:  36%|███▌      | 180/500 [00:07<00:09, 34.53it/s, est. speed input: 5026.73 toks/s, output: 50.76 toks/s][A
-Processed prompts:  46%|████▌     | 229/500 [00:08<00:08, 32.83it/s, est. speed input: 5186.49 toks/s, output: 52.37 toks/s][A
-Processed prompts:  69%|██████▉   | 346/500 [00:09<00:02, 51.40it/s, est. speed input: 6631.72 toks/s, output: 70.45 toks/s][A
-Processed prompts:  87%|████████▋ | 436/500 [00:10<00:00, 69.49it/s, est. speed input: 7736.68 toks/s, output: 84.51 toks/s][A
-Processed prompts: 100%|██████████| 500/500 [00:10<00:00, 69.49it/s, est. speed input: 8844.12 toks/s, output: 96.26 toks/s][AProcessed prompts: 100%|██████████| 500/500 [00:10<00:00, 48.13it/s, est. speed input: 8844.12 toks/s, output: 96.26 toks/s]
-74_swap_percentages_within_graph_group_and_flip_answers_noncommonsense:  10%|█         | 2/20 [00:32<04:36, 15.38s/it]
-Rendering prompts:   0%|          | 0/500 [00:00<?, ?it/s][A
-Rendering prompts:  36%|███▌      | 179/500 [00:00<00:00, 1781.50it/s][A
-Rendering prompts:  76%|███████▌  | 380/500 [00:00<00:00, 1910.60it/s][ARendering prompts: 100%|██████████| 500/500 [00:00<00:00, 1881.15it/s]
-
-Processed prompts:   0%|          | 0/500 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
-Processed prompts:   0%|          | 1/500 [00:02<17:16,  2.08s/it, est. speed input: 127.53 toks/s, output: 0.96 toks/s][A
-Processed prompts:   1%|          | 3/500 [00:04<10:40,  1.29s/it, est. speed input: 146.88 toks/s, output: 1.46 toks/s][A
-Processed prompts:  19%|█▉        | 94/500 [00:05<00:14, 27.07it/s, est. speed input: 3816.19 toks/s, output: 36.87 toks/s][A
-Processed prompts:  39%|███▉      | 196/500 [00:06<00:07, 39.94it/s, est. speed input: 5551.66 toks/s, output: 56.98 toks/s][A
-Processed prompts:  51%|█████▏    | 257/500 [00:08<00:06, 36.05it/s, est. speed input: 5316.90 toks/s, output: 57.83 toks/s][A
-Processed prompts:  70%|███████   | 350/500 [00:10<00:03, 46.10it/s, est. speed input: 6212.44 toks/s, output: 68.95 toks/s][A
-Processed prompts:  86%|████████▌ | 428/500 [00:10<00:01, 63.73it/s, est. speed input: 7585.04 toks/s, output: 81.82 toks/s][A
-Processed prompts: 100%|██████████| 500/500 [00:10<00:00, 63.73it/s, est. speed input: 8901.45 toks/s, output: 95.40 toks/s][AProcessed prompts: 100%|██████████| 500/500 [00:10<00:00, 47.70it/s, est. speed input: 8901.45 toks/s, output: 95.40 toks/s]
-74_swap_percentages_within_graph_group_and_flip_answers_noncommonsense:  15%|█▌        | 3/20 [00:43<03:45, 13.29s/it]
-Rendering prompts:   0%|          | 0/500 [00:00<?, ?it/s][A
-Rendering prompts:  39%|███▉      | 194/500 [00:00<00:00, 1932.36it/s][A
-Rendering prompts:  78%|███████▊  | 388/500 [00:00<00:00, 1910.90it/s][ARendering prompts: 100%|██████████| 500/500 [00:00<00:00, 1921.53it/s]
-
-Processed prompts:   0%|          | 0/500 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
-Processed prompts:   0%|          | 1/500 [00:02<17:20,  2.09s/it, est. speed input: 86.81 toks/s, output: 0.96 toks/s][A
-Processed prompts:   0%|          | 2/500 [00:04<17:07,  2.06s/it, est. speed input: 87.84 toks/s, output: 0.97 toks/s][A
-Processed prompts:  22%|██▏       | 109/500 [00:04<00:11, 35.05it/s, est. speed input: 4215.43 toks/s, output: 45.75 toks/s][A
-Processed prompts:  46%|████▌     | 231/500 [00:06<00:05, 47.59it/s, est. speed input: 5867.25 toks/s, output: 68.36 toks/s][A
-Processed prompts:  52%|█████▏    | 258/500 [00:08<00:07, 33.51it/s, est. speed input: 5042.44 toks/s, output: 58.73 toks/s][A
-Processed prompts:  69%|██████▉   | 347/500 [00:09<00:03, 46.44it/s, est. speed input: 6374.22 toks/s, output: 71.25 toks/s][A
-Processed prompts: 100%|██████████| 500/500 [00:09<00:00, 46.44it/s, est. speed input: 9288.14 toks/s, output: 102.22 toks/s][AProcessed prompts: 100%|██████████| 500/500 [00:09<00:00, 51.11it/s, est. speed input: 9288.14 toks/s, output: 102.22 toks/s]
-74_swap_percentages_within_graph_group_and_flip_answers_noncommonsense:  20%|██        | 4/20 [00:53<03:12, 12.03s/it]
-Rendering prompts:   0%|          | 0/500 [00:00<?, ?it/s][A
-Rendering prompts:  39%|███▊      | 193/500 [00:00<00:00, 1928.00it/s][A
-Rendering prompts:  77%|███████▋  | 386/500 [00:00<00:00, 1867.85it/s][ARendering prompts: 100%|██████████| 500/500 [00:00<00:00, 1914.56it/s]
-
-Processed prompts:   0%|          | 0/500 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
-Processed prompts:   0%|          | 1/500 [00:02<17:17,  2.08s/it, est. speed input: 86.13 toks/s, output: 0.96 toks/s][A
-Processed prompts:   0%|          | 2/500 [00:04<18:09,  2.19s/it, est. speed input: 92.36 toks/s, output: 0.92 toks/s][A
-Processed prompts:  24%|██▍       | 121/500 [00:05<00:10, 35.56it/s, est. speed input: 3906.54 toks/s, output: 47.27 toks/s][A
-Processed prompts:  44%|████▍     | 221/500 [00:07<00:06, 42.15it/s, est. speed input: 5311.68 toks/s, output: 62.07 toks/s][A
-Processed prompts:  52%|█████▏    | 258/500 [00:09<00:07, 32.69it/s, est. speed input: 5036.23 toks/s, output: 56.46 toks/s][A
-Processed prompts:  70%|███████   | 350/500 [00:09<00:03, 47.40it/s, est. speed input: 6547.04 toks/s, output: 70.16 toks/s][A
-Processed prompts: 100%|██████████| 500/500 [00:10<00:00, 47.40it/s, est. speed input: 9092.18 toks/s, output: 99.78 toks/s][AProcessed prompts: 100%|██████████| 500/500 [00:10<00:00, 49.89it/s, est. speed input: 9092.18 toks/s, output: 99.78 toks/s]
-74_swap_percentages_within_graph_group_and_flip_answers_noncommonsense:  25%|██▌       | 5/20 [01:03<02:51, 11.41s/it]
-Rendering prompts:   0%|          | 0/500 [00:00<?, ?it/s][A
-Rendering prompts:  37%|███▋      | 185/500 [00:00<00:00, 1846.28it/s][A
-Rendering prompts:  75%|███████▍  | 374/500 [00:00<00:00, 1868.41it/s][ARendering prompts: 100%|██████████| 500/500 [00:00<00:00, 1899.59it/s]
-
-Processed prompts:   0%|          | 0/500 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
-Processed prompts:   0%|          | 1/500 [00:02<17:11,  2.07s/it, est. speed input: 72.05 toks/s, output: 0.97 toks/s][A
-Processed prompts:   0%|          | 2/500 [00:04<16:59,  2.05s/it, est. speed input: 70.72 toks/s, output: 0.98 toks/s][A
-Processed prompts:  21%|██        | 106/500 [00:05<00:12, 30.54it/s, est. speed input: 3516.03 toks/s, output: 41.50 toks/s][A
-Processed prompts:  41%|████▏     | 207/500 [00:07<00:07, 39.51it/s, est. speed input: 5244.06 toks/s, output: 58.17 toks/s][A
-Processed prompts:  48%|████▊     | 242/500 [00:09<00:08, 30.70it/s, est. speed input: 4948.83 toks/s, output: 52.93 toks/s][A
-Processed prompts:  69%|██████▉   | 344/500 [00:10<00:03, 46.92it/s, est. speed input: 6331.06 toks/s, output: 68.25 toks/s][A
-Processed prompts: 100%|█████████▉| 498/500 [00:10<00:00, 92.23it/s, est. speed input: 8707.28 toks/s, output: 97.69 toks/s][A
-Processed prompts: 100%|██████████| 500/500 [00:10<00:00, 92.23it/s, est. speed input: 8743.70 toks/s, output: 98.08 toks/s][AProcessed prompts: 100%|██████████| 500/500 [00:10<00:00, 49.04it/s, est. speed input: 8743.70 toks/s, output: 98.08 toks/s]
-74_swap_percentages_within_graph_group_and_flip_answers_noncommonsense:  30%|███       | 6/20 [01:14<02:35, 11.11s/it]
-Rendering prompts:   0%|          | 0/500 [00:00<?, ?it/s][A
-Rendering prompts:  35%|███▌      | 177/500 [00:00<00:00, 1764.27it/s][A
-Rendering prompts:  75%|███████▍  | 374/500 [00:00<00:00, 1881.39it/s][ARendering prompts: 100%|██████████| 500/500 [00:00<00:00, 1862.32it/s]
-
-Processed prompts:   0%|          | 0/500 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
-Processed prompts:   0%|          | 1/500 [00:02<17:09,  2.06s/it, est. speed input: 70.25 toks/s, output: 0.97 toks/s][A
-Processed prompts:   0%|          | 2/500 [00:04<16:59,  2.05s/it, est. speed input: 70.72 toks/s, output: 0.98 toks/s][A
-Processed prompts:  19%|█▉        | 95/500 [00:05<00:15, 26.75it/s, est. speed input: 3643.63 toks/s, output: 36.65 toks/s][A
-Processed prompts:  41%|████      | 204/500 [00:06<00:07, 42.11it/s, est. speed input: 5734.87 toks/s, output: 59.35 toks/s][A
-Processed prompts:  50%|█████     | 250/500 [00:08<00:07, 34.22it/s, est. speed input: 5377.98 toks/s, output: 56.25 toks/s][A
-Processed prompts:  70%|███████   | 351/500 [00:10<00:03, 46.46it/s, est. speed input: 6293.78 toks/s, output: 69.13 toks/s][A
-Processed prompts: 100%|██████████| 500/500 [00:10<00:00, 46.46it/s, est. speed input: 9086.80 toks/s, output: 98.04 toks/s][AProcessed prompts: 100%|██████████| 500/500 [00:10<00:00, 49.02it/s, est. speed input: 9086.80 toks/s, output: 98.04 toks/s]
-74_swap_percentages_within_graph_group_and_flip_answers_noncommonsense:  35%|███▌      | 7/20 [01:25<02:21, 10.92s/it]
-Rendering prompts:   0%|          | 0/500 [00:00<?, ?it/s][A
-Rendering prompts:  37%|███▋      | 186/500 [00:00<00:00, 1857.51it/s][A
-Rendering prompts:  76%|███████▌  | 380/500 [00:00<00:00, 1902.45it/s][ARendering prompts: 100%|██████████| 500/500 [00:00<00:00, 1893.36it/s]
-
-Processed prompts:   0%|          | 0/500 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
-Processed prompts:   0%|          | 1/500 [00:02<17:18,  2.08s/it, est. speed input: 86.04 toks/s, output: 0.96 toks/s][A
-Processed prompts:   0%|          | 2/500 [00:04<17:01,  2.05s/it, est. speed input: 83.65 toks/s, output: 0.97 toks/s][A
-Processed prompts:  20%|█▉        | 99/500 [00:04<00:12, 31.71it/s, est. speed input: 4008.14 toks/s, output: 41.53 toks/s][A
-Processed prompts:  44%|████▍     | 221/500 [00:06<00:06, 45.75it/s, est. speed input: 5785.70 toks/s, output: 65.30 toks/s][A
-Processed prompts:  52%|█████▏    | 258/500 [00:08<00:07, 34.52it/s, est. speed input: 5180.00 toks/s, output: 58.70 toks/s][A
-Processed prompts:  68%|██████▊   | 341/500 [00:09<00:03, 44.50it/s, est. speed input: 6252.34 toks/s, output: 69.03 toks/s][A
-Processed prompts:  86%|████████▌ | 429/500 [00:10<00:01, 64.23it/s, est. speed input: 7801.30 toks/s, output: 83.53 toks/s][A
-Processed prompts: 100%|██████████| 500/500 [00:10<00:00, 64.23it/s, est. speed input: 9010.34 toks/s, output: 97.14 toks/s][AProcessed prompts: 100%|██████████| 500/500 [00:10<00:00, 48.57it/s, est. speed input: 9010.34 toks/s, output: 97.14 toks/s]
-74_swap_percentages_within_graph_group_and_flip_answers_noncommonsense:  40%|████      | 8/20 [01:35<02:09, 10.82s/it]
-Rendering prompts:   0%|          | 0/500 [00:00<?, ?it/s][A
-Rendering prompts:  39%|███▉      | 194/500 [00:00<00:00, 1938.95it/s][A
-Rendering prompts:  78%|███████▊  | 388/500 [00:00<00:00, 1900.24it/s][ARendering prompts: 100%|██████████| 500/500 [00:00<00:00, 1930.04it/s]
-
-Processed prompts:   0%|          | 0/500 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
-Processed prompts:   0%|          | 1/500 [00:02<17:10,  2.06s/it, est. speed input: 108.98 toks/s, output: 0.97 toks/s][A
-Processed prompts:   0%|          | 2/500 [00:04<16:59,  2.05s/it, est. speed input: 109.81 toks/s, output: 0.98 toks/s][A
-Processed prompts:  25%|██▍       | 123/500 [00:05<00:10, 36.17it/s, est. speed input: 3986.30 toks/s, output: 48.79 toks/s][A
-Processed prompts:  43%|████▎     | 217/500 [00:07<00:06, 41.08it/s, est. speed input: 5371.15 toks/s, output: 61.59 toks/s][A
-Processed prompts:  51%|█████     | 253/500 [00:09<00:07, 31.81it/s, est. speed input: 5057.13 toks/s, output: 55.79 toks/s][A
-Processed prompts:  70%|██████▉   | 348/500 [00:09<00:03, 48.56it/s, est. speed input: 6588.67 toks/s, output: 71.02 toks/s][A
-Processed prompts: 100%|██████████| 500/500 [00:09<00:00, 48.56it/s, est. speed input: 9128.60 toks/s, output: 101.63 toks/s][AProcessed prompts: 100%|██████████| 500/500 [00:09<00:00, 50.81it/s, est. speed input: 9128.60 toks/s, output: 101.63 toks/s]
-74_swap_percentages_within_graph_group_and_flip_answers_noncommonsense:  45%|████▌     | 9/20 [01:45<01:56, 10.61s/it]
-Rendering prompts:   0%|          | 0/500 [00:00<?, ?it/s][A
-Rendering prompts:  36%|███▌      | 180/500 [00:00<00:00, 1796.35it/s][A
-Rendering prompts:  74%|███████▍  | 371/500 [00:00<00:00, 1860.76it/s][ARendering prompts: 100%|██████████| 500/500 [00:00<00:00, 1883.63it/s]
-
-Processed prompts:   0%|          | 0/500 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
-Processed prompts:   0%|          | 1/500 [00:02<17:11,  2.07s/it, est. speed input: 68.24 toks/s, output: 0.97 toks/s][A
-Processed prompts:   0%|          | 2/500 [00:04<17:53,  2.16s/it, est. speed input: 68.36 toks/s, output: 0.93 toks/s][A
-Processed prompts:  20%|██        | 101/500 [00:05<00:13, 29.66it/s, est. speed input: 3525.92 toks/s, output: 39.62 toks/s][A
-Processed prompts:  39%|███▉      | 195/500 [00:07<00:08, 37.49it/s, est. speed input: 5253.24 toks/s, output: 54.84 toks/s][A
-Processed prompts:  48%|████▊     | 240/500 [00:08<00:07, 32.91it/s, est. speed input: 5229.74 toks/s, output: 53.90 toks/s][A
-Processed prompts:  69%|██████▉   | 346/500 [00:09<00:03, 50.14it/s, est. speed input: 6597.50 toks/s, output: 70.25 toks/s][A
-Processed prompts:  90%|█████████ | 451/500 [00:10<00:00, 79.47it/s, est. speed input: 8146.98 toks/s, output: 89.76 toks/s][A
-Processed prompts: 100%|██████████| 500/500 [00:10<00:00, 79.47it/s, est. speed input: 9005.99 toks/s, output: 99.22 toks/s][AProcessed prompts: 100%|██████████| 500/500 [00:10<00:00, 49.61it/s, est. speed input: 9005.99 toks/s, output: 99.22 toks/s]
-74_swap_percentages_within_graph_group_and_flip_answers_noncommonsense:  50%|█████     | 10/20 [01:56<01:45, 10.55s/it]
-Rendering prompts:   0%|          | 0/500 [00:00<?, ?it/s][A
-Rendering prompts:  35%|███▌      | 177/500 [00:00<00:00, 1765.88it/s][A
-Rendering prompts:  74%|███████▍  | 369/500 [00:00<00:00, 1852.90it/s][ARendering prompts: 100%|██████████| 500/500 [00:00<00:00, 1835.31it/s]
-
-Processed prompts:   0%|          | 0/500 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
-Processed prompts:   0%|          | 1/500 [00:02<17:08,  2.06s/it, est. speed input: 88.80 toks/s, output: 0.97 toks/s][A
-Processed prompts:   0%|          | 2/500 [00:04<16:57,  2.04s/it, est. speed input: 109.03 toks/s, output: 0.98 toks/s][A
-Processed prompts:  19%|█▉        | 96/500 [00:05<00:14, 27.02it/s, est. speed input: 3752.62 toks/s, output: 37.04 toks/s][A
-Processed prompts:  40%|███▉      | 198/500 [00:07<00:07, 39.20it/s, est. speed input: 5554.66 toks/s, output: 56.42 toks/s][A
-Processed prompts:  49%|████▉     | 247/500 [00:09<00:07, 33.23it/s, est. speed input: 5308.02 toks/s, output: 54.68 toks/s][A
-Processed prompts:  70%|███████   | 352/500 [00:10<00:03, 48.15it/s, est. speed input: 6348.92 toks/s, output: 69.53 toks/s][A
-Processed prompts: 100%|██████████| 500/500 [00:10<00:00, 48.15it/s, est. speed input: 9119.11 toks/s, output: 98.33 toks/s][AProcessed prompts: 100%|██████████| 500/500 [00:10<00:00, 49.16it/s, est. speed input: 9119.11 toks/s, output: 98.33 toks/s]
-74_swap_percentages_within_graph_group_and_flip_answers_noncommonsense:  55%|█████▌    | 11/20 [02:06<01:34, 10.53s/it]
-Rendering prompts:   0%|          | 0/500 [00:00<?, ?it/s][A
-Rendering prompts:  36%|███▌      | 180/500 [00:00<00:00, 1794.64it/s][A
-Rendering prompts:  74%|███████▍  | 372/500 [00:00<00:00, 1865.90it/s][ARendering prompts: 100%|██████████| 500/500 [00:00<00:00, 1859.16it/s]
-
-Processed prompts:   0%|          | 0/500 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
-Processed prompts:   0%|          | 1/500 [00:02<17:09,  2.06s/it, est. speed input: 88.25 toks/s, output: 0.97 toks/s][A
-Processed prompts:   0%|          | 2/500 [00:04<17:01,  2.05s/it, est. speed input: 88.68 toks/s, output: 0.97 toks/s][A
-Processed prompts:  17%|█▋        | 83/500 [00:05<00:17, 23.23it/s, est. speed input: 3417.87 toks/s, output: 31.91 toks/s][A
-Processed prompts:  41%|████      | 204/500 [00:07<00:07, 41.53it/s, est. speed input: 5411.80 toks/s, output: 58.08 toks/s][A
-Processed prompts:  52%|█████▏    | 258/500 [00:09<00:06, 35.62it/s, est. speed input: 5182.36 toks/s, output: 57.08 toks/s][A
-Processed prompts:  68%|██████▊   | 339/500 [00:10<00:03, 43.00it/s, est. speed input: 6058.12 toks/s, output: 65.70 toks/s][A
-Processed prompts:  85%|████████▌ | 427/500 [00:10<00:01, 62.62it/s, est. speed input: 7580.80 toks/s, output: 80.01 toks/s][A
-Processed prompts: 100%|██████████| 500/500 [00:10<00:00, 62.62it/s, est. speed input: 8872.66 toks/s, output: 93.48 toks/s][AProcessed prompts: 100%|██████████| 500/500 [00:10<00:00, 46.74it/s, est. speed input: 8872.66 toks/s, output: 93.48 toks/s]
-74_swap_percentages_within_graph_group_and_flip_answers_noncommonsense:  60%|██████    | 12/20 [02:17<01:25, 10.68s/it]
-Rendering prompts:   0%|          | 0/500 [00:00<?, ?it/s][A
-Rendering prompts:  38%|███▊      | 191/500 [00:00<00:00, 1907.71it/s][A
-Rendering prompts:  76%|███████▋  | 382/500 [00:00<00:00, 1871.91it/s][ARendering prompts: 100%|██████████| 500/500 [00:00<00:00, 1910.63it/s]
-
-Processed prompts:   0%|          | 0/500 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
-Processed prompts:   0%|          | 1/500 [00:02<17:19,  2.08s/it, est. speed input: 81.14 toks/s, output: 0.96 toks/s][A
-Processed prompts:   0%|          | 2/500 [00:04<17:05,  2.06s/it, est. speed input: 81.96 toks/s, output: 0.97 toks/s][A
-Processed prompts:  24%|██▍       | 122/500 [00:05<00:10, 36.09it/s, est. speed input: 3924.70 toks/s, output: 48.48 toks/s][A
-Processed prompts:  44%|████▍     | 222/500 [00:07<00:06, 42.38it/s, est. speed input: 5397.50 toks/s, output: 63.04 toks/s][A
-Processed prompts:  52%|█████▏    | 258/500 [00:09<00:07, 32.57it/s, est. speed input: 5042.90 toks/s, output: 56.90 toks/s][A
-Processed prompts:  72%|███████▏  | 358/500 [00:09<00:02, 53.79it/s, est. speed input: 6864.73 toks/s, output: 75.17 toks/s][A
-Processed prompts: 100%|██████████| 500/500 [00:09<00:00, 53.79it/s, est. speed input: 9323.77 toks/s, output: 104.55 toks/s][AProcessed prompts: 100%|██████████| 500/500 [00:09<00:00, 52.27it/s, est. speed input: 9323.77 toks/s, output: 104.55 toks/s]
-74_swap_percentages_within_graph_group_and_flip_answers_noncommonsense:  65%|██████▌   | 13/20 [02:27<01:13, 10.44s/it]
-Rendering prompts:   0%|          | 0/500 [00:00<?, ?it/s][A
-Rendering prompts:  36%|███▌      | 180/500 [00:00<00:00, 1797.13it/s][A
-Rendering prompts:  73%|███████▎  | 364/500 [00:00<00:00, 1817.25it/s][ARendering prompts: 100%|██████████| 500/500 [00:00<00:00, 1866.95it/s]
-
-Processed prompts:   0%|          | 0/500 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
-Processed prompts:   0%|          | 1/500 [00:02<17:19,  2.08s/it, est. speed input: 65.76 toks/s, output: 0.96 toks/s][A
-Processed prompts:   0%|          | 2/500 [00:04<17:01,  2.05s/it, est. speed input: 70.01 toks/s, output: 0.97 toks/s][A
-Processed prompts:  24%|██▍       | 120/500 [00:05<00:10, 35.06it/s, est. speed input: 3980.28 toks/s, output: 47.33 toks/s][A
-Processed prompts:  42%|████▏     | 209/500 [00:07<00:07, 39.19it/s, est. speed input: 5465.13 toks/s, output: 58.94 toks/s][A
-Processed prompts:  49%|████▉     | 246/500 [00:08<00:07, 33.28it/s, est. speed input: 5324.90 toks/s, output: 56.23 toks/s][A
-Processed prompts:  72%|███████▏  | 361/500 [00:09<00:02, 52.64it/s, est. speed input: 6884.64 toks/s, output: 74.32 toks/s][A
-Processed prompts: 100%|██████████| 500/500 [00:09<00:00, 52.64it/s, est. speed input: 9137.51 toks/s, output: 102.85 toks/s][AProcessed prompts: 100%|██████████| 500/500 [00:09<00:00, 51.42it/s, est. speed input: 9137.51 toks/s, output: 102.85 toks/s]
-74_swap_percentages_within_graph_group_and_flip_answers_noncommonsense:  70%|███████   | 14/20 [02:37<01:01, 10.32s/it]
-Rendering prompts:   0%|          | 0/500 [00:00<?, ?it/s][A
-Rendering prompts:  35%|███▌      | 177/500 [00:00<00:00, 1767.85it/s][A
-Rendering prompts:  75%|███████▌  | 376/500 [00:00<00:00, 1893.12it/s][ARendering prompts: 100%|██████████| 500/500 [00:00<00:00, 1879.54it/s]
-
-Processed prompts:   0%|          | 0/500 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
-Processed prompts:   0%|          | 1/500 [00:02<17:13,  2.07s/it, est. speed input: 72.88 toks/s, output: 0.97 toks/s][A
-Processed prompts:   0%|          | 2/500 [00:04<16:59,  2.05s/it, est. speed input: 70.93 toks/s, output: 0.97 toks/s][A
-Processed prompts:  18%|█▊        | 90/500 [00:05<00:16, 25.20it/s, est. speed input: 3370.01 toks/s, output: 34.58 toks/s][A
-Processed prompts:  38%|███▊      | 190/500 [00:06<00:07, 38.94it/s, est. speed input: 5478.04 toks/s, output: 55.08 toks/s][A
-Processed prompts:  50%|█████     | 251/500 [00:08<00:06, 37.87it/s, est. speed input: 5646.12 toks/s, output: 58.42 toks/s][A
-Processed prompts:  69%|██████▉   | 346/500 [00:10<00:03, 46.84it/s, est. speed input: 6340.60 toks/s, output: 69.18 toks/s][A
-Processed prompts: 100%|██████████| 500/500 [00:10<00:00, 46.84it/s, est. speed input: 9128.53 toks/s, output: 99.56 toks/s][AProcessed prompts: 100%|██████████| 500/500 [00:10<00:00, 49.78it/s, est. speed input: 9128.53 toks/s, output: 99.56 toks/s]
-74_swap_percentages_within_graph_group_and_flip_answers_noncommonsense:  75%|███████▌  | 15/20 [02:47<00:51, 10.33s/it]
-Rendering prompts:   0%|          | 0/500 [00:00<?, ?it/s][A
-Rendering prompts:  36%|███▋      | 182/500 [00:00<00:00, 1814.08it/s][A
-Rendering prompts:  76%|███████▌  | 379/500 [00:00<00:00, 1901.75it/s][ARendering prompts: 100%|██████████| 500/500 [00:00<00:00, 1857.18it/s]
-
-Processed prompts:   0%|          | 0/500 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
-Processed prompts:   0%|          | 1/500 [00:02<17:22,  2.09s/it, est. speed input: 79.93 toks/s, output: 0.96 toks/s][A
-Processed prompts:   0%|          | 2/500 [00:04<17:04,  2.06s/it, est. speed input: 83.20 toks/s, output: 0.97 toks/s][A
-Processed prompts:  20%|██        | 102/500 [00:04<00:12, 32.68it/s, est. speed input: 4383.18 toks/s, output: 42.75 toks/s][A
-Processed prompts:  43%|████▎     | 217/500 [00:06<00:06, 45.50it/s, est. speed input: 6065.07 toks/s, output: 64.88 toks/s][A
-Processed prompts:  52%|█████▏    | 258/500 [00:08<00:06, 35.09it/s, est. speed input: 5370.56 toks/s, output: 59.28 toks/s][A
-Processed prompts:  72%|███████▏  | 358/500 [00:09<00:02, 48.27it/s, est. speed input: 6549.61 toks/s, output: 72.73 toks/s][A
-Processed prompts:  90%|█████████ | 451/500 [00:09<00:00, 74.36it/s, est. speed input: 8361.92 toks/s, output: 90.41 toks/s][A
-Processed prompts: 100%|██████████| 500/500 [00:10<00:00, 74.36it/s, est. speed input: 9379.33 toks/s, output: 99.94 toks/s][AProcessed prompts: 100%|██████████| 500/500 [00:10<00:00, 49.97it/s, est. speed input: 9379.33 toks/s, output: 99.94 toks/s]
-74_swap_percentages_within_graph_group_and_flip_answers_noncommonsense:  80%|████████  | 16/20 [02:58<00:41, 10.33s/it]
-Rendering prompts:   0%|          | 0/500 [00:00<?, ?it/s][A
-Rendering prompts:  39%|███▊      | 193/500 [00:00<00:00, 1928.16it/s][A
-Rendering prompts:  82%|████████▏ | 409/500 [00:00<00:00, 2062.22it/s][ARendering prompts: 100%|██████████| 500/500 [00:00<00:00, 2073.61it/s]
-
-Processed prompts:   0%|          | 0/500 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
-Processed prompts:   0%|          | 1/500 [00:02<17:24,  2.09s/it, est. speed input: 157.69 toks/s, output: 0.96 toks/s][A
-Processed prompts:   0%|          | 2/500 [00:04<17:07,  2.06s/it, est. speed input: 123.12 toks/s, output: 0.97 toks/s][A
-Processed prompts:  22%|██▏       | 111/500 [00:04<00:09, 42.87it/s, est. speed input: 4851.40 toks/s, output: 52.23 toks/s][A
-Processed prompts:  51%|█████     | 256/500 [00:05<00:03, 71.34it/s, est. speed input: 7827.85 toks/s, output: 92.01 toks/s][A
-Processed prompts:  57%|█████▋    | 287/500 [00:07<00:04, 48.00it/s, est. speed input: 6655.25 toks/s, output: 78.95 toks/s][A
-Processed prompts: 100%|██████████| 500/500 [00:07<00:00, 48.00it/s, est. speed input: 10902.46 toks/s, output: 136.69 toks/s][AProcessed prompts: 100%|██████████| 500/500 [00:07<00:00, 68.34it/s, est. speed input: 10902.46 toks/s, output: 136.69 toks/s]
-74_swap_percentages_within_graph_group_and_flip_answers_noncommonsense:  85%|████████▌ | 17/20 [03:05<00:28,  9.51s/it]
-Rendering prompts:   0%|          | 0/500 [00:00<?, ?it/s][A
-Rendering prompts:  40%|████      | 202/500 [00:00<00:00, 2018.90it/s][A
-Rendering prompts:  83%|████████▎ | 413/500 [00:00<00:00, 2071.58it/s][ARendering prompts: 100%|██████████| 500/500 [00:00<00:00, 2059.57it/s]
-
-Processed prompts:   0%|          | 0/500 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
-Processed prompts:   0%|          | 1/500 [00:02<17:33,  2.11s/it, est. speed input: 80.54 toks/s, output: 0.95 toks/s][A
-Processed prompts:   0%|          | 2/500 [00:03<13:24,  1.62s/it, est. speed input: 100.59 toks/s, output: 1.18 toks/s][A
-Processed prompts:  51%|█████▏    | 257/500 [00:05<00:03, 63.82it/s, est. speed input: 7232.23 toks/s, output: 93.94 toks/s][A
-Processed prompts:  53%|█████▎    | 263/500 [00:06<00:05, 46.65it/s, est. speed input: 6095.07 toks/s, output: 79.28 toks/s][A
-Processed prompts: 100%|██████████| 500/500 [00:06<00:00, 46.65it/s, est. speed input: 11586.69 toks/s, output: 149.74 toks/s][AProcessed prompts: 100%|██████████| 500/500 [00:06<00:00, 74.87it/s, est. speed input: 11586.69 toks/s, output: 149.74 toks/s]
-74_swap_percentages_within_graph_group_and_flip_answers_noncommonsense:  90%|█████████ | 18/20 [03:12<00:17,  8.75s/it]
-Rendering prompts:   0%|          | 0/500 [00:00<?, ?it/s][A
-Rendering prompts:  43%|████▎     | 213/500 [00:00<00:00, 2122.50it/s][A
-Rendering prompts:  85%|████████▌ | 426/500 [00:00<00:00, 2122.56it/s][ARendering prompts: 100%|██████████| 500/500 [00:00<00:00, 2131.25it/s]
-
-Processed prompts:   0%|          | 0/500 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
-Processed prompts:   0%|          | 1/500 [00:02<17:33,  2.11s/it, est. speed input: 75.76 toks/s, output: 0.95 toks/s][A
-Processed prompts:   0%|          | 2/500 [00:03<12:59,  1.57s/it, est. speed input: 97.45 toks/s, output: 1.21 toks/s][A
-Processed prompts:  51%|█████▏    | 257/500 [00:05<00:03, 61.54it/s, est. speed input: 6888.64 toks/s, output: 91.87 toks/s][A
-Processed prompts:  53%|█████▎    | 263/500 [00:06<00:04, 49.38it/s, est. speed input: 6152.75 toks/s, output: 81.76 toks/s][A
-Processed prompts: 100%|██████████| 500/500 [00:06<00:00, 49.38it/s, est. speed input: 11543.31 toks/s, output: 154.58 toks/s][AProcessed prompts: 100%|██████████| 500/500 [00:06<00:00, 77.29it/s, est. speed input: 11543.31 toks/s, output: 154.58 toks/s]
-74_swap_percentages_within_graph_group_and_flip_answers_noncommonsense:  95%|█████████▌| 19/20 [03:19<00:08,  8.15s/it]
-Rendering prompts:   0%|          | 0/100 [00:00<?, ?it/s][ARendering prompts: 100%|██████████| 100/100 [00:00<00:00, 1872.11it/s]
-
-Processed prompts:   0%|          | 0/100 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
-Processed prompts:   1%|          | 1/100 [00:01<02:18,  1.40s/it, est. speed input: 98.56 toks/s, output: 1.43 toks/s][A
-Processed prompts: 100%|██████████| 100/100 [00:01<00:00,  1.40s/it, est. speed input: 11039.45 toks/s, output: 138.43 toks/s][AProcessed prompts: 100%|██████████| 100/100 [00:01<00:00, 69.21it/s, est. speed input: 11039.45 toks/s, output: 138.43 toks/s]
-74_swap_percentages_within_graph_group_and_flip_answers_noncommonsense: 100%|██████████| 20/20 [03:21<00:00,  6.16s/it]                                                                                                                       (EngineCore pid=3253835) INFO 05-03 21:40:06 [core.py:1201] Shutdown initiated (timeout=0)
-(EngineCore pid=3253835) INFO 05-03 21:40:06 [core.py:1224] Shutdown complete
-  → wrote 9600 records  acc=0.5779  invalid=0  → finetune/eval_results/interventions/gptoss_base/74_swap_percentages_within_graph_group_and_flip_answers/noncommonsense/gptoss_base__74_swap_percentages_within_graph_group_and_flip_answers__noncommonsense.jsonl
-
-[multi-infer] Done — 1 file(s) processed.
-
-=== Overall ===
-             n: 9600
-       correct: 5548
-       invalid: 0
-  invalid_rate: 0.0
-       acc_all: 0.5779166666666666
-acc_valid_only: 0.5779166666666666
-
-=== Per query_type (top 10 by n) ===
-        query_type    n  invalid  invalid_rate  acc_all  acc_valid_only
-               ate 1440        0           0.0 0.780556        0.780556
-           backadj 1440        0           0.0 0.500000        0.500000
-       correlation 1440        0           0.0 0.615972        0.615972
-det-counterfactual 1440        0           0.0 0.418750        0.418750
-          marginal 1440        0           0.0 0.661806        0.661806
-               ett 1280        0           0.0 0.452344        0.452344
-               nie  800        0           0.0 0.610000        0.610000
-               nde  320        0           0.0 0.606250        0.606250
-
-Wrote: finetune/eval_results/interventions/gptoss_base/74_swap_percentages_within_graph_group_and_flip_answers/noncommonsense/score/summary.json
-Wrote: finetune/eval_results/interventions/gptoss_base/74_swap_percentages_within_graph_group_and_flip_answers/noncommonsense/score/per_query_type.csv
