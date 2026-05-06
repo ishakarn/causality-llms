@@ -7,6 +7,7 @@ __pycache__/
 # old scripts
 archive/
 finetune/plots/archive
+finetune/scripts/archive
 
 # Model checkpoints (61GB)
 finetune/checkpoints/
@@ -36,7 +37,7 @@ completions/slurm_logs/
 slurm-*.out
 
 # batch files
-finetune/scripts/
+finetune/scripts/..
 
 # Claude settings
 .claude/
