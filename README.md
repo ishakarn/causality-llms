@@ -58,7 +58,7 @@ timeline_grapher.py                 # timeline plot (model accuracy vs. release 
 
 ## Interventions
 
-We test 6 interventions. Each preserves the correct answer while changing the surface form of the question:
+We test 7 interventions. Each preserves the correct answer while changing the surface form of the question:
 
 | ID | Name | What changes |
 |----|------|-------------|
@@ -68,7 +68,7 @@ We test 6 interventions. Each preserves the correct answer while changing the su
 | 86 | Nonsense Replace | variable names to random 4-letter nonsense strings |
 | 94 | Drop Background | removes the background text entirely |
 | 100 | Drop Graph Structure | removes the causal relationship description, keeps only the story title |
-
+| 101 | Drop Intro | removes the intro preamble, keeps the causaal relationship description |
 To regenerate intervened datasets:
 ```bash
 cd cladder_interventions/interventions
