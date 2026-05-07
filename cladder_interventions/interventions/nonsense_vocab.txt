@@ -1,0 +1,28 @@
+CLadder nonsense vocabulary (31 words from nonsense0–9.yml)
+────────────────────────────────────────────────────────────
+  cwoi  glimx  gwet  gyzp  hwax  jyka  kraz  kwox  kwoz  lirg  muvq  muvy  pexu  qwiu  rixq  rukz  swoq  swoy  tijv  tijw  uvzi  vubr  wibl  xevo  xevu  xyfo  yomx  yupt  zory  zuph  zupj
+
+Generated novel pool (200 words, seed=42, 4 letters, no all-same-char)
+────────────────────────────────────────────────────────────
+  qahf  trxc  kafn  afqo  fpva  usie  yicc  wpus  nzjo  vqwp
+  sbfh  cgch  qjjf  gyqp  esej  zqor  vufa  igfy  wirk  xlgg
+  ogpx  kfzn  cbcq  ukbj  znzw  asrn  gqcl  lywg  nexw  hqpd
+  toun  aiay  wvhb  wycm  bttd  mogw  lfos  fizq  lndf  ipff
+  bqfx  wbgr  fdyo  muue  cllm  srzc  kiwg  elkh  gylw  obzv
+  zywe  mfkb  jzgu  lkyz  oseh  zpot  bpnw  eyce  prgd  xgpq
+  kpny  fsgk  rhit  blzz  bfgy  wwje  vspz  ravh  rydd  cohp
+  sfqg  mxvc  lhau  qgto  labw  xovp  ddix  uwxf  gcuw  kqey
+  wzvw  atiy  uwvg  ucww  fvlh  ufaf  iwzh  qkzn  ycze  zgcl
+  sipn  kogs  ayns  trjb  riiw  shik  khdk  yrxq  hoah  lprm
+  lfmx  uecn  qivt  rffa  gmwb  kqfs  mgra  tucl  eynb  gwlu
+  rzpy  xpsn  voxt  mggq  tnqh  chhi  odgs  sbko  kfkx  pswt
+  jajt  wykt  opff  lair  kemd  qako  aqdm  bjfi  tjtv  gcao
+  zjqu  qtyf  addr  ofst  eptc  vzca  iryk  sbrq  cuwp  dzuj
+  ljni  wvcy  qvsl  tzhv  nmlt  gwvc  wgmp  jawe  fuiw  shay
+  csmt  rqmu  cfrh  pmnl  tish  gdfd  ntef  mszn  hcff  eanh
+  zosd  wmwo  mleb  ymvk  bqbd  ohzd  tpuf  nllw  zhqp  tyff
+  reeb  alph  gssl  ryuq  rylo  qxvb  ehto  hdrs  ynmc  blig
+  czvo  yzrh  btmq  xepq  mcji  rwis  hyvo  liiz  knzr  okej
+  tqtf  oyls  dzpg  eooc  zxld  vmsn  hvzg  ojxn  wwhu  kynv
+
+Overlap between generated pool and CLadder vocabulary: NONE

@@ -1,0 +1,49 @@
+# ── Unsupervised CLM pretraining on CLADDER question text ─────────────────────
+# Trains on the aggregate dataset (all variants combined) so the model sees
+# the full diversity of causal-reasoning questions without any answer labels.
+# After training, evaluate zero-shot via infer_vllm.py --lora_path.
+
+# ── Model ─────────────────────────────────────────────────────────────────────
+model_id: "allenai/Olmo-3-7B-Instruct"
+trust_remote_code: true
+dtype: "bf16"
+
+# ── Data ──────────────────────────────────────────────────────────────────────
+# Aggregate dataset: combines all CLADDER variants (easy, hard, commonsense,
+# anticommonsense, balanced, noncommonsense) for maximum text diversity.
+# Answers are present in source but are NOT used — only background + given_info
+# + question fields are tokenized.
+data_path: "data/cladder-v1-q-aggregate.json"
+max_seq_length: 512
+
+# ── LoRA ──────────────────────────────────────────────────────────────────────
+# Same config as supervised fine-tuning so infer_vllm.py can load the adapter
+lora_r: 16
+lora_alpha: 32
+lora_dropout: 0.05
+lora_target_modules:
+  - "q_proj"
+  - "k_proj"
+  - "v_proj"
+  - "o_proj"
+  - "gate_proj"
+  - "up_proj"
+  - "down_proj"
+
+# ── Training ──────────────────────────────────────────────────────────────────
+output_dir: "finetune/checkpoints/pretrain_clm"
+run_name: "olmo7b_pretrain_clm"
+
+num_train_epochs: 3
+per_device_train_batch_size: 4
+gradient_accumulation_steps: 4
+learning_rate: 2.0e-4
+lr_scheduler_type: "cosine"
+warmup_ratio: 0.05
+weight_decay: 0.01
+gradient_checkpointing: true
+seed: 42
+
+# ── Logging ───────────────────────────────────────────────────────────────────
+logging_steps: 50
+report_to: "none"

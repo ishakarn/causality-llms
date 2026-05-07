@@ -1,0 +1,233 @@
+model,model_key,condition_type,intervention,split,n,correct,invalid,acc_all,acc_valid_only,delta_acc_all
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,baseline,easy,10560,8962,0,0.8487,0.8487,
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,baseline,hard,10556,8393,0,0.7951,0.7951,
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,baseline,anticommonsense,10392,9053,0,0.8712,0.8712,
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,baseline,noncommonsense,10240,8165,0,0.7974,0.7974,
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,baseline,pooled,41748,34573,0,0.8281,0.8281,
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,67_word_replace,easy,10560,7561,0,0.716,0.716,-0.1327
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,67_word_replace,hard,10556,7306,0,0.6921,0.6921,-0.103
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,67_word_replace,anticommonsense,10392,7437,0,0.7156,0.7156,-0.1555
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,67_word_replace,noncommonsense,10240,7214,0,0.7045,0.7045,-0.0929
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,67_word_replace,pooled,41748,29518,0,0.7071,0.7071,-0.1211
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,68_number_replace,easy,10560,7649,0,0.7243,0.7243,-0.1243
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,68_number_replace,hard,10556,7414,0,0.7023,0.7023,-0.0927
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,68_number_replace,anticommonsense,10392,7670,0,0.7381,0.7381,-0.1331
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,68_number_replace,noncommonsense,10240,7284,0,0.7113,0.7113,-0.086
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,68_number_replace,pooled,41748,30017,0,0.719,0.719,-0.1091
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,81_story_swap,easy,10560,8663,0,0.8204,0.8204,-0.0283
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,81_story_swap,hard,10556,8471,0,0.8025,0.8025,0.0074
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,81_story_swap,anticommonsense,10392,8732,0,0.8403,0.8403,-0.0309
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,81_story_swap,noncommonsense,10240,8148,0,0.7957,0.7957,-0.0017
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,81_story_swap,pooled,41748,34014,0,0.8147,0.8147,-0.0134
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,86_nonsense_replace,easy,10560,7641,0,0.7236,0.7236,-0.1251
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,86_nonsense_replace,hard,10556,7427,0,0.7036,0.7036,-0.0915
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,86_nonsense_replace,anticommonsense,10392,7626,0,0.7338,0.7338,-0.1373
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,86_nonsense_replace,noncommonsense,10240,7345,0,0.7173,0.7173,-0.0801
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,86_nonsense_replace,pooled,41748,30039,0,0.7195,0.7195,-0.1086
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,94_drop_background,easy,10560,8258,0,0.782,0.782,-0.0667
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,94_drop_background,hard,10556,7756,0,0.7347,0.7347,-0.0603
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,94_drop_background,anticommonsense,10392,8638,0,0.8312,0.8312,-0.0399
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,94_drop_background,noncommonsense,10240,7509,0,0.7333,0.7333,-0.0641
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,94_drop_background,pooled,41748,32161,0,0.7704,0.7704,-0.0578
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,96_probability_expander,easy,7272,4584,0,0.6304,0.6304,-0.2183
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,96_probability_expander,hard,7268,3991,0,0.5491,0.5491,-0.246
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,96_probability_expander,anticommonsense,7636,4905,0,0.6424,0.6424,-0.2288
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,96_probability_expander,noncommonsense,7040,3937,0,0.5592,0.5592,-0.2381
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,96_probability_expander,pooled,29216,17417,0,0.5961,0.5961,-0.232
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,100_drop_graph_structure,easy,10560,8477,0,0.8027,0.8027,-0.0459
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,100_drop_graph_structure,hard,10556,7988,0,0.7567,0.7567,-0.0384
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,100_drop_graph_structure,anticommonsense,10392,8895,0,0.8559,0.8559,-0.0152
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,100_drop_graph_structure,noncommonsense,10240,7671,0,0.7491,0.7491,-0.0482
+Qwen2.5-3B LoRA,qwen3b_n2000_lora,finetuned,100_drop_graph_structure,pooled,41748,33031,0,0.7912,0.7912,-0.0369
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,baseline,easy,10560,9042,0,0.8562,0.8562,
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,baseline,hard,10556,8585,0,0.8133,0.8133,
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,baseline,anticommonsense,10392,9175,0,0.8829,0.8829,
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,baseline,noncommonsense,10240,8351,0,0.8155,0.8155,
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,baseline,pooled,41748,35153,0,0.842,0.842,
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,67_word_replace,easy,10560,7978,0,0.7555,0.7555,-0.1008
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,67_word_replace,hard,10556,7765,0,0.7356,0.7356,-0.0777
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,67_word_replace,anticommonsense,10392,7906,0,0.7608,0.7608,-0.1221
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,67_word_replace,noncommonsense,10240,7654,0,0.7475,0.7475,-0.0681
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,67_word_replace,pooled,41748,31303,0,0.7498,0.7498,-0.0922
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,68_number_replace,easy,10560,8257,0,0.7819,0.7819,-0.0743
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,68_number_replace,hard,10556,7965,0,0.7545,0.7545,-0.0587
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,68_number_replace,anticommonsense,10392,8226,0,0.7916,0.7916,-0.0913
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,68_number_replace,noncommonsense,10240,7830,0,0.7646,0.7646,-0.0509
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,68_number_replace,pooled,41748,32278,0,0.7732,0.7732,-0.0689
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,81_story_swap,easy,10560,9273,0,0.8781,0.8781,0.0219
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,81_story_swap,hard,10556,9130,0,0.8649,0.8649,0.0516
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,81_story_swap,anticommonsense,10392,9354,0,0.9001,0.9001,0.0172
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,81_story_swap,noncommonsense,10240,8730,0,0.8525,0.8525,0.037
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,81_story_swap,pooled,41748,36487,0,0.874,0.874,0.032
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,86_nonsense_replace,easy,10560,8223,0,0.7787,0.7787,-0.0776
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,86_nonsense_replace,hard,10556,8015,0,0.7593,0.7593,-0.054
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,86_nonsense_replace,anticommonsense,10392,8212,0,0.7902,0.7902,-0.0927
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,86_nonsense_replace,noncommonsense,10240,7865,0,0.7681,0.7681,-0.0475
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,86_nonsense_replace,pooled,41748,32315,0,0.774,0.774,-0.068
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,94_drop_background,easy,10560,8493,0,0.8043,0.8043,-0.052
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,94_drop_background,hard,10556,8089,0,0.7663,0.7663,-0.047
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,94_drop_background,anticommonsense,10392,8739,0,0.8409,0.8409,-0.042
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,94_drop_background,noncommonsense,10240,7810,0,0.7627,0.7627,-0.0528
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,94_drop_background,pooled,41748,33131,0,0.7936,0.7936,-0.0484
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,96_probability_expander,easy,7272,4981,0,0.685,0.685,-0.1713
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,96_probability_expander,hard,7268,4506,0,0.62,0.62,-0.1933
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,96_probability_expander,anticommonsense,7636,5494,0,0.7195,0.7195,-0.1634
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,96_probability_expander,noncommonsense,7040,4467,0,0.6345,0.6345,-0.181
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,96_probability_expander,pooled,29216,19448,0,0.6657,0.6657,-0.1764
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,100_drop_graph_structure,easy,10560,8517,0,0.8065,0.8065,-0.0497
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,100_drop_graph_structure,hard,10556,8105,0,0.7678,0.7678,-0.0455
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,100_drop_graph_structure,anticommonsense,10392,8716,0,0.8387,0.8387,-0.0442
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,100_drop_graph_structure,noncommonsense,10240,7815,0,0.7632,0.7632,-0.0523
+Llama-3.1-8B LoRA,llama8b_n2000_lora,finetuned,100_drop_graph_structure,pooled,41748,33153,0,0.7941,0.7941,-0.0479
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,baseline,easy,10560,9341,0,0.8846,0.8846,
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,baseline,hard,10556,9024,0,0.8549,0.8549,
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,baseline,anticommonsense,10392,9352,0,0.8999,0.8999,
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,baseline,noncommonsense,10240,8792,0,0.8586,0.8586,
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,baseline,pooled,41748,36509,0,0.8745,0.8745,
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,67_word_replace,easy,10560,7863,0,0.7446,0.7446,-0.14
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,67_word_replace,hard,10556,7717,0,0.7311,0.7311,-0.1238
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,67_word_replace,anticommonsense,10392,7793,0,0.7499,0.7499,-0.15
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,67_word_replace,noncommonsense,10240,7560,0,0.7383,0.7383,-0.1203
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,67_word_replace,pooled,41748,30933,0,0.7409,0.7409,-0.1336
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,68_number_replace,easy,10560,7899,0,0.748,0.748,-0.1366
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,68_number_replace,hard,10556,7740,0,0.7332,0.7332,-0.1216
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,68_number_replace,anticommonsense,10392,7782,0,0.7488,0.7488,-0.1511
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,68_number_replace,noncommonsense,10240,7617,0,0.7438,0.7438,-0.1147
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,68_number_replace,pooled,41748,31038,0,0.7435,0.7435,-0.131
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,81_story_swap,easy,10560,9191,0,0.8704,0.8704,-0.0142
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,81_story_swap,hard,10556,9043,0,0.8567,0.8567,0.0018
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,81_story_swap,anticommonsense,10392,9211,0,0.8864,0.8864,-0.0136
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,81_story_swap,noncommonsense,10240,8709,0,0.8505,0.8505,-0.0081
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,81_story_swap,pooled,41748,36154,0,0.866,0.866,-0.0085
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,86_nonsense_replace,easy,10560,7923,0,0.7503,0.7503,-0.1343
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,86_nonsense_replace,hard,10556,7697,0,0.7292,0.7292,-0.1257
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,86_nonsense_replace,anticommonsense,10392,7821,0,0.7526,0.7526,-0.1473
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,86_nonsense_replace,noncommonsense,10240,7554,0,0.7377,0.7377,-0.1209
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,86_nonsense_replace,pooled,41748,30995,0,0.7424,0.7424,-0.1321
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,94_drop_background,easy,10560,8517,0,0.8065,0.8065,-0.078
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,94_drop_background,hard,10556,8249,0,0.7815,0.7815,-0.0734
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,94_drop_background,anticommonsense,10392,8936,0,0.8599,0.8599,-0.04
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,94_drop_background,noncommonsense,10240,7887,0,0.7702,0.7702,-0.0884
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,94_drop_background,pooled,41748,33589,0,0.8046,0.8046,-0.0699
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,96_probability_expander,easy,7272,5329,0,0.7328,0.7328,-0.1518
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,96_probability_expander,hard,7268,5141,0,0.7073,0.7073,-0.1475
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,96_probability_expander,anticommonsense,7636,5592,0,0.7323,0.7323,-0.1676
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,96_probability_expander,noncommonsense,7040,5008,0,0.7114,0.7114,-0.1472
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,96_probability_expander,pooled,29216,21070,0,0.7212,0.7212,-0.1533
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,100_drop_graph_structure,easy,10560,8680,0,0.822,0.822,-0.0626
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,100_drop_graph_structure,hard,10556,8414,0,0.7971,0.7971,-0.0578
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,100_drop_graph_structure,anticommonsense,10392,8924,0,0.8587,0.8587,-0.0412
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,100_drop_graph_structure,noncommonsense,10240,8096,0,0.7906,0.7906,-0.068
+OLMo-3.1-32B LoRA,olmo32b_n2000_lora,finetuned,100_drop_graph_structure,pooled,41748,34114,0,0.8171,0.8171,-0.0574
+GPT-OSS-20B,gptoss_base,baseline,baseline,easy,10560,8698,194,0.8237,0.8391,
+GPT-OSS-20B,gptoss_base,baseline,baseline,hard,10556,8665,199,0.8209,0.8366,
+GPT-OSS-20B,gptoss_base,baseline,baseline,anticommonsense,10392,8833,99,0.85,0.8582,
+GPT-OSS-20B,gptoss_base,baseline,baseline,noncommonsense,10240,8322,224,0.8127,0.8309,
+GPT-OSS-20B,gptoss_base,baseline,baseline,pooled,41748,34518,716,0.8268,0.8412,
+GPT-OSS-20B,gptoss_base,baseline,67_word_replace,easy,10560,6421,45,0.608,0.6107,-0.2156
+GPT-OSS-20B,gptoss_base,baseline,67_word_replace,hard,10556,6259,56,0.5929,0.5961,-0.2279
+GPT-OSS-20B,gptoss_base,baseline,67_word_replace,anticommonsense,10392,6386,16,0.6145,0.6155,-0.2355
+GPT-OSS-20B,gptoss_base,baseline,67_word_replace,noncommonsense,10240,6110,58,0.5967,0.6001,-0.216
+GPT-OSS-20B,gptoss_base,baseline,67_word_replace,pooled,41748,25176,175,0.603,0.6056,-0.2238
+GPT-OSS-20B,gptoss_base,baseline,68_number_replace,easy,10560,6307,79,0.5973,0.6018,-0.2264
+GPT-OSS-20B,gptoss_base,baseline,68_number_replace,hard,10556,6166,77,0.5841,0.5884,-0.2367
+GPT-OSS-20B,gptoss_base,baseline,68_number_replace,anticommonsense,10392,6221,34,0.5986,0.6006,-0.2513
+GPT-OSS-20B,gptoss_base,baseline,68_number_replace,noncommonsense,10240,5957,127,0.5817,0.589,-0.231
+GPT-OSS-20B,gptoss_base,baseline,68_number_replace,pooled,41748,24651,317,0.5905,0.595,-0.2363
+GPT-OSS-20B,gptoss_base,baseline,81_story_swap,easy,10560,8742,163,0.8278,0.8408,0.0042
+GPT-OSS-20B,gptoss_base,baseline,81_story_swap,hard,10556,8738,157,0.8278,0.8403,0.0069
+GPT-OSS-20B,gptoss_base,baseline,81_story_swap,anticommonsense,10392,8762,202,0.8431,0.8599,-0.0068
+GPT-OSS-20B,gptoss_base,baseline,81_story_swap,noncommonsense,10240,8495,151,0.8296,0.842,0.0169
+GPT-OSS-20B,gptoss_base,baseline,81_story_swap,pooled,41748,34737,673,0.8321,0.8457,0.0052
+GPT-OSS-20B,gptoss_base,baseline,86_nonsense_replace,easy,10560,6498,130,0.6153,0.623,-0.2083
+GPT-OSS-20B,gptoss_base,baseline,86_nonsense_replace,hard,10556,6352,121,0.6017,0.6087,-0.2191
+GPT-OSS-20B,gptoss_base,baseline,86_nonsense_replace,anticommonsense,10392,6442,47,0.6199,0.6227,-0.2301
+GPT-OSS-20B,gptoss_base,baseline,86_nonsense_replace,noncommonsense,10240,6128,157,0.5984,0.6078,-0.2143
+GPT-OSS-20B,gptoss_base,baseline,86_nonsense_replace,pooled,41748,25420,455,0.6089,0.6156,-0.2179
+GPT-OSS-20B,gptoss_base,baseline,94_drop_background,easy,10560,6266,0,0.5934,0.5934,-0.2303
+GPT-OSS-20B,gptoss_base,baseline,94_drop_background,hard,10556,6119,0,0.5797,0.5797,-0.2412
+GPT-OSS-20B,gptoss_base,baseline,94_drop_background,anticommonsense,10392,6100,0,0.587,0.587,-0.263
+GPT-OSS-20B,gptoss_base,baseline,94_drop_background,noncommonsense,10240,5991,0,0.5851,0.5851,-0.2276
+GPT-OSS-20B,gptoss_base,baseline,94_drop_background,pooled,41748,24476,0,0.5863,0.5863,-0.2405
+GPT-OSS-20B,gptoss_base,baseline,96_probability_expander,easy,7272,4034,0,0.5547,0.5547,-0.2689
+GPT-OSS-20B,gptoss_base,baseline,96_probability_expander,hard,7268,3866,0,0.5319,0.5319,-0.2889
+GPT-OSS-20B,gptoss_base,baseline,96_probability_expander,anticommonsense,7636,4175,0,0.5468,0.5468,-0.3032
+GPT-OSS-20B,gptoss_base,baseline,96_probability_expander,noncommonsense,7040,3782,0,0.5372,0.5372,-0.2755
+GPT-OSS-20B,gptoss_base,baseline,96_probability_expander,pooled,29216,15857,0,0.5428,0.5428,-0.2841
+GPT-OSS-20B,gptoss_base,baseline,100_drop_graph_structure,easy,10560,8435,139,0.7988,0.8094,-0.0249
+GPT-OSS-20B,gptoss_base,baseline,100_drop_graph_structure,hard,10556,8308,143,0.787,0.7978,-0.0338
+GPT-OSS-20B,gptoss_base,baseline,100_drop_graph_structure,anticommonsense,10392,8348,82,0.8033,0.8097,-0.0467
+GPT-OSS-20B,gptoss_base,baseline,100_drop_graph_structure,noncommonsense,10240,8090,162,0.79,0.8027,-0.0227
+GPT-OSS-20B,gptoss_base,baseline,100_drop_graph_structure,pooled,41748,33181,526,0.7948,0.8049,-0.032
+GPT-5-Nano,gpt5nano_base,baseline,baseline,easy,10560,9209,0,0.8721,0.8721,
+GPT-5-Nano,gpt5nano_base,baseline,baseline,hard,10556,9130,0,0.8649,0.8649,
+GPT-5-Nano,gpt5nano_base,baseline,baseline,anticommonsense,10392,9149,0,0.8804,0.8804,
+GPT-5-Nano,gpt5nano_base,baseline,baseline,noncommonsense,10240,8865,0,0.8657,0.8657,
+GPT-5-Nano,gpt5nano_base,baseline,baseline,pooled,41748,36353,0,0.8708,0.8708,
+GPT-5-Nano,gpt5nano_base,baseline,67_word_replace,easy,10560,7063,0,0.6688,0.6688,-0.2032
+GPT-5-Nano,gpt5nano_base,baseline,67_word_replace,hard,10556,6898,0,0.6535,0.6535,-0.2114
+GPT-5-Nano,gpt5nano_base,baseline,67_word_replace,anticommonsense,10392,7183,0,0.6912,0.6912,-0.1892
+GPT-5-Nano,gpt5nano_base,baseline,67_word_replace,noncommonsense,10240,6668,0,0.6512,0.6512,-0.2146
+GPT-5-Nano,gpt5nano_base,baseline,67_word_replace,pooled,41748,27812,0,0.6662,0.6662,-0.2046
+GPT-5-Nano,gpt5nano_base,baseline,68_number_replace,easy,10560,6784,0,0.6424,0.6424,-0.2296
+GPT-5-Nano,gpt5nano_base,baseline,68_number_replace,hard,10556,6648,0,0.6298,0.6298,-0.2351
+GPT-5-Nano,gpt5nano_base,baseline,68_number_replace,anticommonsense,10392,6738,0,0.6484,0.6484,-0.232
+GPT-5-Nano,gpt5nano_base,baseline,68_number_replace,noncommonsense,10240,6486,0,0.6334,0.6334,-0.2323
+GPT-5-Nano,gpt5nano_base,baseline,68_number_replace,pooled,41748,26656,0,0.6385,0.6385,-0.2323
+GPT-5-Nano,gpt5nano_base,baseline,81_story_swap,easy,10560,9118,0,0.8634,0.8634,-0.0086
+GPT-5-Nano,gpt5nano_base,baseline,81_story_swap,hard,10556,9151,0,0.8669,0.8669,0.002
+GPT-5-Nano,gpt5nano_base,baseline,81_story_swap,anticommonsense,10392,9237,0,0.8889,0.8889,0.0085
+GPT-5-Nano,gpt5nano_base,baseline,81_story_swap,noncommonsense,10240,8820,0,0.8613,0.8613,-0.0044
+GPT-5-Nano,gpt5nano_base,baseline,81_story_swap,pooled,41748,36326,0,0.8701,0.8701,-0.0006
+GPT-5-Nano,gpt5nano_base,baseline,86_nonsense_replace,easy,10560,7081,0,0.6705,0.6705,-0.2015
+GPT-5-Nano,gpt5nano_base,baseline,86_nonsense_replace,hard,10556,6951,0,0.6585,0.6585,-0.2064
+GPT-5-Nano,gpt5nano_base,baseline,86_nonsense_replace,anticommonsense,10392,7025,0,0.676,0.676,-0.2044
+GPT-5-Nano,gpt5nano_base,baseline,86_nonsense_replace,noncommonsense,10240,6786,0,0.6627,0.6627,-0.203
+GPT-5-Nano,gpt5nano_base,baseline,86_nonsense_replace,pooled,41748,27843,0,0.6669,0.6669,-0.2038
+GPT-5-Nano,gpt5nano_base,baseline,94_drop_background,easy,10560,8606,0,0.815,0.815,-0.0571
+GPT-5-Nano,gpt5nano_base,baseline,94_drop_background,hard,10556,8608,0,0.8155,0.8155,-0.0495
+GPT-5-Nano,gpt5nano_base,baseline,94_drop_background,anticommonsense,10392,8629,0,0.8304,0.8304,-0.05
+GPT-5-Nano,gpt5nano_base,baseline,94_drop_background,noncommonsense,10240,8321,0,0.8126,0.8126,-0.0531
+GPT-5-Nano,gpt5nano_base,baseline,94_drop_background,pooled,41748,34164,0,0.8183,0.8183,-0.0524
+GPT-5-Nano,gpt5nano_base,baseline,96_probability_expander,easy,7272,5215,0,0.7171,0.7171,-0.1549
+GPT-5-Nano,gpt5nano_base,baseline,96_probability_expander,hard,7268,5237,0,0.7206,0.7206,-0.1444
+GPT-5-Nano,gpt5nano_base,baseline,96_probability_expander,anticommonsense,7636,5573,0,0.7298,0.7298,-0.1506
+GPT-5-Nano,gpt5nano_base,baseline,96_probability_expander,noncommonsense,7040,5061,0,0.7189,0.7189,-0.1468
+GPT-5-Nano,gpt5nano_base,baseline,96_probability_expander,pooled,29216,21086,0,0.7217,0.7217,-0.149
+GPT-5-Nano,gpt5nano_base,baseline,100_drop_graph_structure,easy,10560,8777,0,0.8312,0.8312,-0.0409
+GPT-5-Nano,gpt5nano_base,baseline,100_drop_graph_structure,pooled,10560,8777,0,0.8312,0.8312,-0.0396
+GPT-5.5,gpt55_base,baseline,baseline,easy,10560,8465,0,0.8016,0.8016,
+GPT-5.5,gpt55_base,baseline,baseline,hard,10556,8362,0,0.7922,0.7922,
+GPT-5.5,gpt55_base,baseline,baseline,anticommonsense,10392,8655,0,0.8329,0.8329,
+GPT-5.5,gpt55_base,baseline,baseline,noncommonsense,10240,8153,0,0.7962,0.7962,
+GPT-5.5,gpt55_base,baseline,baseline,pooled,41748,33635,0,0.8057,0.8057,
+GPT-5.5,gpt55_base,baseline,67_word_replace,easy,10560,6805,0,0.6444,0.6444,-0.1572
+GPT-5.5,gpt55_base,baseline,67_word_replace,hard,10556,6728,0,0.6374,0.6374,-0.1548
+GPT-5.5,gpt55_base,baseline,67_word_replace,anticommonsense,10392,6830,0,0.6572,0.6572,-0.1756
+GPT-5.5,gpt55_base,baseline,67_word_replace,noncommonsense,10240,6492,0,0.634,0.634,-0.1622
+GPT-5.5,gpt55_base,baseline,67_word_replace,pooled,41748,26855,0,0.6433,0.6433,-0.1624
+GPT-5.5,gpt55_base,baseline,68_number_replace,easy,10560,6556,0,0.6208,0.6208,-0.1808
+GPT-5.5,gpt55_base,baseline,68_number_replace,hard,10556,6529,0,0.6185,0.6185,-0.1736
+GPT-5.5,gpt55_base,baseline,68_number_replace,anticommonsense,10392,6492,0,0.6247,0.6247,-0.2081
+GPT-5.5,gpt55_base,baseline,68_number_replace,noncommonsense,10240,6328,0,0.618,0.618,-0.1782
+GPT-5.5,gpt55_base,baseline,68_number_replace,pooled,41748,25905,0,0.6205,0.6205,-0.1852
+GPT-5.5,gpt55_base,baseline,81_story_swap,easy,10560,8382,0,0.7937,0.7937,-0.0079
+GPT-5.5,gpt55_base,baseline,81_story_swap,hard,10556,8328,0,0.7889,0.7889,-0.0032
+GPT-5.5,gpt55_base,baseline,81_story_swap,anticommonsense,10392,8531,0,0.8209,0.8209,-0.0119
+GPT-5.5,gpt55_base,baseline,81_story_swap,noncommonsense,10240,8076,0,0.7887,0.7887,-0.0075
+GPT-5.5,gpt55_base,baseline,81_story_swap,pooled,41748,33317,0,0.7981,0.7981,-0.0076
+GPT-5.5,gpt55_base,baseline,86_nonsense_replace,easy,10560,6759,0,0.6401,0.6401,-0.1616
+GPT-5.5,gpt55_base,baseline,86_nonsense_replace,hard,10556,6635,0,0.6286,0.6286,-0.1636
+GPT-5.5,gpt55_base,baseline,86_nonsense_replace,anticommonsense,10392,6786,0,0.653,0.653,-0.1798
+GPT-5.5,gpt55_base,baseline,86_nonsense_replace,noncommonsense,10240,6466,0,0.6314,0.6314,-0.1647
+GPT-5.5,gpt55_base,baseline,86_nonsense_replace,pooled,41748,26646,0,0.6383,0.6383,-0.1674
+GPT-5.5,gpt55_base,baseline,94_drop_background,easy,10560,7872,0,0.7455,0.7455,-0.0562
+GPT-5.5,gpt55_base,baseline,94_drop_background,hard,10556,7786,0,0.7376,0.7376,-0.0546
+GPT-5.5,gpt55_base,baseline,94_drop_background,anticommonsense,10392,7593,0,0.7307,0.7307,-0.1022
+GPT-5.5,gpt55_base,baseline,94_drop_background,noncommonsense,10240,7580,0,0.7402,0.7402,-0.056
+GPT-5.5,gpt55_base,baseline,94_drop_background,pooled,41748,30831,0,0.7385,0.7385,-0.0672
+GPT-5.5,gpt55_base,baseline,96_probability_expander,easy,7272,5106,0,0.7021,0.7021,-0.0995
+GPT-5.5,gpt55_base,baseline,96_probability_expander,hard,7268,5087,0,0.6999,0.6999,-0.0922
+GPT-5.5,gpt55_base,baseline,96_probability_expander,anticommonsense,7636,5394,0,0.7064,0.7064,-0.1265
+GPT-5.5,gpt55_base,baseline,96_probability_expander,noncommonsense,7040,4973,0,0.7064,0.7064,-0.0898
+GPT-5.5,gpt55_base,baseline,96_probability_expander,pooled,29216,20560,0,0.7037,0.7037,-0.1019
